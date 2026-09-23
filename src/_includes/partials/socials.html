@@ -1,0 +1,14 @@
+{% set hasSocials = site.bluesky or site.facebook or site.imdb or site.instagram or site.linkedin or site.threads or site.tiktok or site.youtube %}
+
+{% if hasSocials %}
+<ul class="alt-social">
+{% if site.bluesky %}<li><a href="{{ site.bluesky }}" rel="me">{% include "partials/icons/icon-bluesky.svg" %}<span data-visibility="hidden">Bluesky</span></a></li>{% endif %}
+{% if site.facebook %}<li><a href="{{ site.facebook }}" rel="me">{% include "partials/icons/icon-facebook.svg" %}<span data-visibility="hidden">Facebook</span></a></li>{% endif %}
+{% if site.imdb %}<li><a href="{{ site.imdb }}" rel="me">{% include "partials/icons/icon-imdb.svg" %}<span data-visibility="hidden">IMDb</span></a></li>{% endif %}
+{% if site.instagram %}<li><a href="{{ site.instagram }}" rel="me">{% include "partials/icons/icon-instagram.svg" %}<span data-visibility="hidden">Instagram</span></a></li>{% endif %}
+{% if site.linkedin %}<li><a href="{{ site.linkedin }}" rel="me">{% include "partials/icons/icon-linkedin.svg" %}<span data-visibility="hidden">LinkedIn</span></a></li>{% endif %}
+{% if site.threads %}<li><a href="{{ site.threads }}" rel="me">{% include "partials/icons/icon-threads.svg" %}<span data-visibility="hidden">Threads</span></a></li>{% endif %}
+{% if site.tiktok %}<li><a href="{{ site.tiktok }}" rel="me">{% include "partials/icons/icon-tiktok.svg" %}<span data-visibility="hidden">TikTok</span></a></li>{% endif %}
+{% if site.youtube %}<li><a href="{{ site.youtube }}" rel="me">{% include "partials/icons/icon-youtube.svg" %}<span data-visibility="hidden">YouTube</span></a></li>{% endif %}
+</ul>
+{% endif %}

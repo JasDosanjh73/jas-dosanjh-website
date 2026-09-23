@@ -1,0 +1,33 @@
+pagesFiles:
+  - label: "Timeline"
+    name: "timeline"
+    file: "src/timeline.md"
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "layouts/timeline.html" }
+      - { label: "Permalink", name: "permalink", widget: "hidden", default: "/timeline/" }
+      - { label: "Title", name: "title", widget: "string", default: "Timeline" }
+      - { label: "Meta description", name: "metaDesc", widget: "text", required: false }
+      - { label: "Lede", name: "lede", widget: "markdown", required: false }
+      - { label: "Timeline heading", name: "timelineHeading", widget: "string", default: "Career timeline" }
+collections:
+  - name: "timeline"
+    label: "Timeline items"
+    folder: "src/timeline"
+    create: true
+    slug: "{{slug}}"
+    preview_path: "timeline"
+    fields:
+      - { label: "Title", name: "title", widget: "string", hint: "Used to identify this file in the CMS." }
+      - { label: "Visible", name: "visible", widget: "boolean", default: true, required: false }
+      - { label: "Order", name: "order", widget: "number", value_type: "int", min: 1, default: 10 }
+      - label: "Career timeline"
+        name: "careerTimeline"
+        widget: "list"
+        min: 1
+        summary: "{{fields.period}} — {{fields.title}}"
+        fields:
+          - { label: "Period", name: "period", widget: "string" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Image", name: "image", widget: "image", required: false, media_folder: "/src/images/timeline", public_folder: "/images/timeline" }
+          - { label: "Image description", name: "imageAlt", widget: "string", required: false, hint: "Describe the image, or leave empty for a decorative image." }
+          - { label: "Summary", name: "summary", widget: "markdown", required: false }

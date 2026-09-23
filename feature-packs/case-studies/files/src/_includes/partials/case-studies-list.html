@@ -1,0 +1,25 @@
+{% set listedCaseStudies = caseStudyItems or collections.caseStudiesItems %}
+
+{% for item in listedCaseStudies %}
+{% if item.url != page.url %}
+<article class="item-case-study" data-case-study-card data-case-study-categories="{% if item.data.categories and item.data.categories.length %}{% for category in item.data.categories %}{{ category | slug }}{% if not loop.last %} {% endif %}{% endfor %}{% endif %}">
+{% if item.data.thumbnail %}
+<a href="{{ item.url }}"><img src="{{ item.data.thumbnail }}" alt="{{ item.data.title }}"></a>
+{% endif %}
+
+<h2><a href="{{ item.url }}">{{ item.data.title }}</a></h2>
+
+{% if item.data.clientName %}<small>Client: {{ item.data.clientName }}</small>{% endif %}
+
+{% if item.data.lede %}<p>{{ item.data.lede }}</p>{% endif %}
+
+<!-- {% if item.data.categories and item.data.categories.length %}
+<ul class="alt-inline">
+{% for category in item.data.categories %}
+<li><a href="/case-studies/category/{{ category | slug }}/">{{ category }}</a></li>
+{% endfor %}
+</ul>
+{% endif %} -->
+</article>
+{% endif %}
+{% endfor %}

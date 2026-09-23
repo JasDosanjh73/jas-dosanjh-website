@@ -1,0 +1,192 @@
+{% set buttonLabel = navigation_menu.buttonLabel or "Menu" %}
+{% set closeLabel = navigation_menu.closeLabel or "Close" %}
+{% set companyName = site.name %}
+{% set hasCompanyAddress = companyName or site.address1 or site.address2 or site.townCity or site.countyState or site.postalZipCode or site.country %}
+{% set hasCompanyContact = site.telephone or site.email %}
+{% set heading = navigation_menu.heading or "" %}
+{% set variant = navigation_menu.variant or "overlay-small" %}
+
+<nav aria-label="Primary" class="nav-menu" data-navigation-menu data-navigation-variant="{{ variant }}">
+
+<!-- open menu-button -->
+
+<button class="nav-toggle" data-navigation-menu-toggle>
+<span class="nav-label">{{ buttonLabel }}</span>
+<span aria-hidden="true" class="nav-icon">
+<span></span>
+<span></span>
+<span></span>
+</span>
+</button>
+
+<!-- small menu -->
+
+<dialog class="nav-dialog" data-navigation-menu-dialog>
+
+<div class="nav-panel">
+
+<header>
+<button aria-label="{{ closeLabel }}" class="nav-close" data-navigation-menu-close>
+<span aria-hidden="true">&times;</span></button>
+</header><!-- nav header -->
+
+{% if variant == "overlay-small" %}
+<div class="nav-body" data-navigation-body="overlay-small">
+<ul class="alt-">
+{% for item in navigation.items %}
+<li><a {% if loop.first %}data-navigation-menu-first-link{% endif %} href="{{ item.url }}"{{ helpers.getLinkActiveState(item.url, page.url) | safe }}>{{ item.text }}</a></li>
+{% endfor %}
+</ul>
+</div><!-- nav-body -->
+
+
+<!-- large menu -->
+
+{% elif variant == "overlay-large" %}
+
+<div class="nav-body" data-navigation-body="overlay-large">
+
+{% if heading %}<h2>{{ heading }}</h2>{% endif %}
+{% if navigation_menu.intro %}<p>{{ navigation_menu.intro }}</p>{% endif %}
+
+<div class="layout" data-layout="vienna">
+
+<div>
+<h3>Group 1</h3>
+<ul class="alt-">
+{% for item in navigation.items %}
+<li><a {% if loop.first %}data-navigation-menu-first-link{% endif %} href="{{ item.url }}"{{ helpers.getLinkActiveState(item.url, page.url) | safe }}>{{ item.text }}</a></li>
+{% endfor %}
+</ul>
+</div><!-- one -->
+
+{% if navigation_menu.secondaryItems and navigation_menu.secondaryItems.length %}
+<div>
+<h3>Group 2</h3>
+<ul class="alt-">
+{% for item in navigation_menu.secondaryItems %}
+<li><a href="{{ item.url }}"{{ helpers.getLinkActiveState(item.url, page.url) | safe }}>{{ item.text }}</a></li>
+{% endfor %}
+</ul>
+</div><!-- two -->
+{% endif %}
+
+{% if navigation_menu.featureItems and navigation_menu.featureItems.length %}
+<div>
+<h3>Group 3</h3>
+<ul class="alt-">
+{% for item in navigation_menu.featureItems %}
+<li>
+<h4><a href="{{ item.url }}"{{ helpers.getLinkActiveState(item.url, page.url) | safe }}>{{ item.title }}</a></h4>
+{% if item.summary %}<p data-size="s">{{ item.summary }}</p>{% endif %}
+</li>
+{% endfor %}
+</ul>
+</div><!-- three -->
+{% endif %}
+
+</div><!-- layout -->
+
+<footer data-layout="flex">
+
+{% if hasCompanyAddress %}
+<p>
+{% if companyName %}{{ companyName }}{% if site.address1 or site.address2 or site.townCity or site.countyState or site.postalZipCode or site.country %},{% endif %}{% endif %}
+{% if site.address1 %}{{ site.address1 }}{% if site.address2 or site.townCity or site.countyState or site.postalZipCode or site.country %},{% endif %}{% endif %}
+{% if site.address2 %}{{ site.address2 }}{% if site.townCity or site.countyState or site.postalZipCode or site.country %},{% endif %}{% endif %}
+{% if site.townCity %}{{ site.townCity }}{% if site.countyState or site.postalZipCode or site.country %},{% endif %}{% endif %}
+{% if site.countyState %}{{ site.countyState }}{% if site.postalZipCode or site.country %},{% endif %}{% endif %}
+{% if site.postalZipCode %}{{ site.postalZipCode }}{% if site.country %},{% endif %}{% endif %}
+{% if site.country %}{{ site.country }}{% endif %}
+</p><!-- one -->
+{% endif %}
+
+{% if hasCompanyContact %}
+<p>
+{% if site.telephone %}{{ site.telephone }}{% if site.email %}<br>{% endif %}{% endif %}
+{% if site.email %}<a href="mailto:{{ site.email }}">{{ site.email }}</a>{% endif %}
+</p><!-- two -->
+{% endif %}
+
+</footer><!-- layout -->
+
+</div><!-- nav-body -->
+
+<!-- slide menu -->
+
+{% elif variant == "slide" %}
+
+<div class="nav-body" data-navigation-body="slide">
+
+{% if heading %}<h2>{{ heading }}</h2>{% endif %}
+{% if navigation_menu.intro %}<p data-size="s">{{ navigation_menu.intro }}</p>{% endif %}
+
+<h3>Group 1</h3>
+<ul class="alt-">
+{% for item in navigation.items %}
+<li><a {% if loop.first %}data-navigation-menu-first-link{% endif %} href="{{ item.url }}"{{ helpers.getLinkActiveState(item.url, page.url) | safe }}>{{ item.text }}</a></li>
+{% endfor %}
+</ul>
+
+{% if navigation_menu.secondaryItems and navigation_menu.secondaryItems.length %}
+<hr>
+
+<h3>Group 2</h3>
+<ul class="alt-">
+{% for item in navigation_menu.secondaryItems %}
+<li><a href="{{ item.url }}"{{ helpers.getLinkActiveState(item.url, page.url) | safe }}>{{ item.text }}</a></li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{% if navigation_menu.featureItems and navigation_menu.featureItems.length %}
+<hr>
+
+<h3>Group 3</h3>
+<ul class="alt-">
+{% for item in navigation_menu.featureItems %}
+<li>
+<h4><a href="{{ item.url }}"{{ helpers.getLinkActiveState(item.url, page.url) | safe }}>{{ item.title }}</a></h4>
+{% if item.summary %}<p data-size="s">{{ item.summary }}</p>{% endif %}
+</li>
+{% endfor %}
+</ul>
+{% endif %}
+
+<hr>
+
+<footer>
+{% if hasCompanyAddress %}
+<p>
+{% if companyName %}{{ companyName }}{% if site.address1 or site.address2 or site.townCity or site.countyState or site.postalZipCode or site.country %},{% endif %}{% endif %}
+{% if site.address1 %}{{ site.address1 }}{% if site.address2 or site.townCity or site.countyState or site.postalZipCode or site.country %},{% endif %}{% endif %}
+{% if site.address2 %}{{ site.address2 }}{% if site.townCity or site.countyState or site.postalZipCode or site.country %},{% endif %}{% endif %}
+{% if site.townCity %}{{ site.townCity }}{% if site.countyState or site.postalZipCode or site.country %},{% endif %}{% endif %}
+{% if site.countyState %}{{ site.countyState }}{% if site.postalZipCode or site.country %},{% endif %}{% endif %}
+{% if site.postalZipCode %}{{ site.postalZipCode }}{% if site.country %},{% endif %}{% endif %}
+{% if site.country %}{{ site.country }}{% endif %}
+</p>
+{% endif %}
+
+{% if hasCompanyContact %}
+<p>
+{% if site.telephone %}{{ site.telephone }}{% if site.email %}<br>{% endif %}{% endif %}
+{% if site.email %}<a href="mailto:{{ site.email }}">{{ site.email }}</a>{% endif %}
+</p>
+{% endif %}
+</footer>
+
+</div><!-- nav-body -->
+{% endif %}
+
+</div><!-- nav-panel -->
+</dialog>
+
+<noscript>
+<ul class="alt-">
+{% for item in navigation.items %}
+<li><a href="{{ item.url }}"{{ helpers.getLinkActiveState(item.url, page.url) | safe }}>{{ item.text }}</a></li>
+{% endfor %}
+</ul>
+</noscript>
+</nav>

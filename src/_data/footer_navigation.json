@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "text": "Home",
+      "url": "/"
+    },
+    {
+      "text": "Book clubs",
+      "url": "/book-clubs/"
+    },
+    {
+      "text": "Privacy",
+      "url": "/privacy/"
+    },
+    {
+      "text": "Timeline",
+      "url": "/timeline/"
+    },
+    {
+      "text": "Contact",
+      "url": "/contact/"
+    }
+  ]
+}

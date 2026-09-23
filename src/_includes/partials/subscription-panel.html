@@ -1,0 +1,50 @@
+{% if subscriptionPanel %}
+<div data-layout="flex" data-opposite="true">
+
+<article class="item-subscription" data-option="newsletter">
+<div>
+{% include "partials/svgs/logo-mailing-list.svg" %}
+<h3>{{ subscriptionPanel.newsletter.heading | escape }}</h3>
+<p>{{ subscriptionPanel.newsletter.description | escape }}</p>
+</div>
+
+{% if subscriptionPanel.newsletter.buttonUrl %}
+<a class="btn" data-type="secondary" href="{{ subscriptionPanel.newsletter.buttonUrl | escape }}">{{ subscriptionPanel.newsletter.buttonLabel | escape }}</a>
+{% else %}
+<button disabled>{{ subscriptionPanel.newsletter.buttonLabel | escape }}</button>
+{% endif %}
+</article>
+
+
+<article class="item-subscription" data-option="paid">
+<div>
+{% include "partials/svgs/logo-substack-paid.svg" %}
+<h3>{{ subscriptionPanel.paid.heading | escape }}</h3>
+<p>{{ subscriptionPanel.paid.description | escape }}</p>
+</div>
+
+{% if subscriptionPanel.paid.buttonUrl %}
+<a class="btn" href="{{ subscriptionPanel.paid.buttonUrl | escape }}">{{ subscriptionPanel.paid.buttonLabel | escape }}</a>
+{% else %}
+<button disabled>{{ subscriptionPanel.paid.buttonLabel | escape }}</button>
+{% endif %}
+</article>
+
+
+<article class="item-subscription" data-option="free">
+<div>
+{% include "partials/svgs/logo-substack-free.svg" %}
+<h3>{{ subscriptionPanel.free.heading | escape }}</h3>
+<p>{{ subscriptionPanel.free.description | escape }}</p>
+</div>
+
+{% if subscriptionPanel.free.buttonUrl %}
+<a class="btn" data-type="secondary" href="{{ subscriptionPanel.free.buttonUrl | escape }}">{{ subscriptionPanel.free.buttonLabel | escape }}</a>
+{% else %}
+<button disabled>{{ subscriptionPanel.free.buttonLabel | escape }}</button>
+{% endif %}
+</article>
+
+</div><!-- layout -->
+
+{% endif %}

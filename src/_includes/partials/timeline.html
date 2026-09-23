@@ -1,0 +1,36 @@
+{% if careerTimeline is defined %}
+{% set timelineEntries = careerTimeline %}
+{% else %}
+{% set timelineEntries = collections.timelineItems %}
+{% endif %}
+
+{% if features.timeline %}
+{% set timelineEntries = timelineEntries | visibleTimelineItems %}
+{% if timelineEntries.length %}
+<h2 data-align-h="center">{{ timelineHeading | default("My timeline") }}</h2>
+
+<ol class="alt-timeline" role="list" data-opposite="true" aria-label="{{ timelineHeading | default('Career timeline') }}">
+{% for item in timelineEntries %}
+<li class="alt-timeline-item">
+<h3 class="alt-timeline-period">{{ item.period }}</h3>
+
+{% if item.image %}
+{% set timelineImageUrl = item.image %}
+{% if timelineImageUrl.startsWith("/") %}
+{% set timelineImageUrl = site.assetPath + timelineImageUrl %}
+{% elif not timelineImageUrl.startsWith("https://") and not timelineImageUrl.startsWith("http://") %}
+{% set timelineImageUrl = site.assetPath + "/images/" + timelineImageUrl %}
+{% endif %}
+<figure>
+<a href="{{ timelineImageUrl }}" target="_blank"><img src="{{ timelineImageUrl }}" alt="{{ item.imageAlt | default(item.title) }}"></a>
+</figure>
+{% endif %}
+<div class="alt-timeline-body">
+{% if item.title %}<p class="alt-timeline-title">{{ item.title }}</p>{% endif %}
+{% if item.summary %}<div class="alt-timeline-summary">{{ item.summary | markdown | safe }}</div>{% endif %}
+</div><!-- alt-timeline-body -->
+</li>
+{% endfor %}
+</ol>
+{% endif %}
+{% endif %}

@@ -1,0 +1,16 @@
+{
+  "featureFlag": "caseStudies",
+  "mainNavigationItems": [
+    {
+      "text": "Case studies",
+      "url": "/case-studies/"
+    }
+  ],
+  "footerNavigationItems": [
+    {
+      "text": "Case studies",
+      "url": "/case-studies/"
+    }
+  ],
+  "cms": true
+}

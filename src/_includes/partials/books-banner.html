@@ -1,0 +1,60 @@
+<section class="books-banner">
+
+<div class="books-banner-scroll">
+<ul class="alt-">
+{% for item in collections.books %}
+<li data-book="{{ item.fileSlug }}">
+<a href="{{ item.url }}" data-books-banner-open="books-banner-dialog-{{ item.fileSlug }}" title="{{ item.data.title | escape }}">
+{% if item.data.bgImg or item.data.thumbnail %}
+<img src="{{ item.data.banner }}" alt="{{ item.data.title | escape }}">
+{% else %}
+{{ item.data.title | escape }}
+{% endif %}
+</a>
+</li>
+{% endfor %}
+</ul>
+</div><!-- books-banner-scroll -->
+
+
+
+{% for item in collections.books %}
+<dialog class="books-banner-dialog" id="books-banner-dialog-{{ item.fileSlug }}" data-book="{{ item.fileSlug }}">
+
+<div class="books-banner-details">
+
+<form method="dialog">
+<button class="btn" data-variant="c" title="Close" autofocus>
+<svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+<path d="m6 6 12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" />
+</svg>
+</button>
+</form>
+
+<div class="books-banner-img">
+{% if item.data.image %}<figure>
+<a href="{{ item.url }}"><img src="{{ item.data.image }}" alt="{{ item.data.title | escape }}" loading="lazy"></a>
+</figure>{% endif %}
+</div>
+
+
+<div class="books-banner-content">
+
+{% include "partials/svgs/detail-leaf-5.svg" %}
+
+{% if item.data.titleGraphic %}<img src="{{ item.data.titleGraphic }}" alt="{{ item.data.title | escape }}" loading="lazy">{% else %}
+<h2 data-size="3xl">{{ item.data.title | escape }}</h2>
+{% if item.data.tagline %}<p>{{ item.data.tagline | escape }}</p>{% endif %}
+{% endif %}
+
+<div class="btn-cta">
+<a class="btn" href="{{ item.url }}">Read more</a>
+</div><!-- btn-cta -->
+
+</div><!-- books-banner-content -->
+</div><!-- books-banner-details -->
+
+</dialog>
+{% endfor %}
+
+</section><!-- books-banner -->

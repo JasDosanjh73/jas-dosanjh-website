@@ -1,0 +1,56 @@
+{% set assetHash = global.random() %}
+
+<!DOCTYPE html>
+<html lang="{{ site.lang }}">
+
+{% include "partials/head.html" %}
+
+<body id="{{ site.siteID }}">
+
+{% include "partials/analytics-body.html" %}
+
+<div data-style="reversed">
+
+{% include "partials/header.html" %}
+
+<div class="layout" data-layout="amsterdam">
+
+<div>
+{% include "partials/books-banner.html" %}
+</div><!-- one -->
+
+</div><!-- layout -->
+
+</div><!-- data-theme -->
+
+
+
+<hr data-function="spacer">
+
+
+
+<h1 data-size="3xl">{{ title }}</h1>
+
+{% include "partials/book-list.html" %}
+
+<h2>Reviews</h2>
+
+<div class="layout" data-layout="vienna">
+
+{% for review in collections.reviews.slice(0, 24) %}
+<blockquote data-variant="r">
+{% include "partials/svgs/detail-leaf-2.svg" %}
+<p>{{ review.data.reviewText }}</p>
+<footer>{{ review.data.reviewFooter }}</footer>
+</blockquote>
+{% endfor %}
+
+</div><!-- layout -->
+
+
+
+{% include "partials/footer.html" %}
+<script src="{{ site.assetPath }}/js/scripts.js"></script>
+</body>
+
+</html>

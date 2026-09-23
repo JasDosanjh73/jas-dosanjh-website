@@ -1,0 +1,23 @@
+pagesFiles:
+  - label: "Testimonials"
+    name: "testimonials"
+    file: "src/testimonials.md"
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "layouts/testimonials.html" }
+      - { label: "Permalink", name: "permalink", widget: "hidden", default: "/testimonials/" }
+      - { label: "Title", name: "title", widget: "string", default: "Testimonials" }
+      - { label: "Meta description", name: "metaDesc", widget: "text", required: false }
+      - { label: "Lede", name: "lede", widget: "markdown", required: false }
+collections:
+  - name: "testimonials"
+    label: "Testimonials"
+    folder: "src/testimonials"
+    create: true
+    slug: "{{slug}}"
+    preview_path: "testimonials"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Company", name: "company", widget: "string", required: false }
+      - { label: "Image", name: "image", widget: "image", required: false, media_folder: "src/images/testimonials", public_folder: "/images/testimonials" }
+      - { label: "Logo", name: "logo", widget: "image", required: false, media_folder: "src/images/testimonials", public_folder: "/images/testimonials" }
+      - { label: "Blockquote", name: "blockquote", widget: "markdown" }

@@ -1,0 +1,292 @@
+---
+title: City-based layouts
+metaDesc: Showcase of the city-based layout recipes.
+permalink: /layouts.html
+---
+
+{% extends "layouts/base.html" %}
+
+{% macro exampleCard(layoutName, itemName) %}
+<div>
+<p><strong>{{ itemName }}</strong></p>
+<p>Sample content for the <code>{{ layoutName }}</code> layout.</p>
+</div>
+{% endmacro %}
+
+{% block content %}
+<main>
+<div class="layout" data-layout="tbilisi">
+<div>
+<h1>City-based layouts</h1>
+<p>This page only shows the named layout recipes defined in <code>critical.css</code>.</p>
+</div>
+</div><!-- layout -->
+
+<hr>
+
+<section aria-labelledby="compound-grid-layouts">
+<h2 id="compound-grid-layouts">Compound grid layouts</h2>
+
+<section aria-labelledby="amsterdam">
+<h3 id="amsterdam">Amsterdam</h3>
+<p><code>data-layout="amsterdam"</code></p>
+<div class="layout" data-layout="amsterdam">
+{{ exampleCard("amsterdam", "One") }}
+</div><!-- layout -->
+</section>
+
+<hr>
+
+<section aria-labelledby="athens">
+<h3 id="athens">Athens</h3>
+<p><code>data-layout="athens"</code></p>
+<div class="layout" data-layout="athens">
+{{ exampleCard("athens", "One") }}
+{{ exampleCard("athens", "Two") }}
+</div><!-- layout -->
+</section>
+
+<hr>
+
+<section aria-labelledby="berlin">
+<h3 id="berlin">Berlin</h3>
+<p><code>data-layout="berlin"</code></p>
+<div class="layout" data-layout="berlin">
+{{ exampleCard("berlin", "One") }}
+{{ exampleCard("berlin", "Two") }}
+{{ exampleCard("berlin", "Three") }}
+</div><!-- layout -->
+</section>
+
+<hr>
+
+<section aria-labelledby="bern">
+<h3 id="bern">Bern</h3>
+<p><code>data-layout="bern"</code></p>
+<div class="layout" data-layout="bern">
+{{ exampleCard("bern", "One") }}
+{{ exampleCard("bern", "Two") }}
+{{ exampleCard("bern", "Three") }}
+</div><!-- layout -->
+</section>
+
+<hr>
+
+<section aria-labelledby="cardiff">
+<h3 id="cardiff">Cardiff</h3>
+<p><code>data-layout="cardiff"</code></p>
+<div class="layout" data-layout="cardiff">
+{{ exampleCard("cardiff", "One") }}
+{{ exampleCard("cardiff", "Two") }}
+{{ exampleCard("cardiff", "Three") }}
+</div><!-- layout -->
+</section>
+
+<hr>
+
+<section aria-labelledby="copenhagen">
+<h3 id="copenhagen">Copenhagen</h3>
+<p><code>data-layout="copenhagen"</code></p>
+<div class="layout" data-layout="copenhagen">
+{{ exampleCard("copenhagen", "One") }}
+{{ exampleCard("copenhagen", "Two") }}
+{{ exampleCard("copenhagen", "Three") }}
+{{ exampleCard("copenhagen", "Four") }}
+</div><!-- layout -->
+</section>
+
+<hr>
+
+<section aria-labelledby="dublin">
+<h3 id="dublin">Dublin</h3>
+<p><code>data-layout="dublin"</code></p>
+<div class="layout" data-layout="dublin">
+{{ exampleCard("dublin", "One") }}
+{{ exampleCard("dublin", "Two") }}
+{{ exampleCard("dublin", "Three") }}
+</div><!-- layout -->
+</section>
+
+<hr>
+
+<section aria-labelledby="helsinki">
+<h3 id="helsinki">Helsinki</h3>
+<p><code>data-layout="helsinki"</code></p>
+<div class="layout" data-layout="helsinki">
+{{ exampleCard("helsinki", "One") }}
+{{ exampleCard("helsinki", "Two") }}
+{{ exampleCard("helsinki", "Three") }}
+</div><!-- layout -->
+</section>
+
+<hr>
+
+<section aria-labelledby="london">
+<h3 id="london">London</h3>
+<p><code>data-layout="london"</code></p>
+<div class="layout" data-layout="london">
+{{ exampleCard("london", "One") }}
+{{ exampleCard("london", "Two") }}
+{{ exampleCard("london", "Three") }}
+{{ exampleCard("london", "Four") }}
+</div><!-- layout -->
+</section>
+
+<hr>
+
+<section aria-labelledby="madrid">
+<h3 id="madrid">Madrid</h3>
+<p><code>data-layout="madrid"</code></p>
+<div class="layout" data-layout="madrid">
+{{ exampleCard("madrid", "One") }}
+{{ exampleCard("madrid", "Two") }}
+{{ exampleCard("madrid", "Three") }}
+</div><!-- layout -->
+</section>
+
+<hr>
+
+<section aria-labelledby="paris">
+<h3 id="paris">Paris</h3>
+<p><code>data-layout="paris"</code></p>
+<div class="layout" data-layout="paris">
+{{ exampleCard("paris", "One") }}
+{{ exampleCard("paris", "Two") }}
+</div><!-- layout -->
+</section>
+
+<hr>
+
+<section aria-labelledby="rome">
+<h3 id="rome">Rome</h3>
+<p><code>data-layout="rome"</code></p>
+<div class="layout" data-layout="rome">
+{{ exampleCard("rome", "One") }}
+{{ exampleCard("rome", "Two") }}
+</div><!-- layout -->
+</section>
+
+<hr>
+
+<section aria-labelledby="stockholm">
+<h3 id="stockholm">Stockholm</h3>
+<p><code>data-layout="stockholm"</code></p>
+<div class="layout" data-layout="stockholm">
+{{ exampleCard("stockholm", "One") }}
+{{ exampleCard("stockholm", "Two") }}
+{{ exampleCard("stockholm", "Three") }}
+</div><!-- layout -->
+</section>
+
+<hr>
+
+<section aria-labelledby="tallinn">
+<h3 id="tallinn">Tallinn</h3>
+<p><code>data-layout="tallinn"</code></p>
+<div class="layout" data-layout="tallinn">
+{{ exampleCard("tallinn", "One") }}
+{{ exampleCard("tallinn", "Two") }}
+</div><!-- layout -->
+</section>
+
+<hr>
+
+<section aria-labelledby="tbilisi">
+<h3 id="tbilisi">Tbilisi</h3>
+<p><code>data-layout="tbilisi"</code></p>
+<div class="layout" data-layout="tbilisi">
+{{ exampleCard("tbilisi", "One") }}
+{{ exampleCard("tbilisi", "Two") }}
+{{ exampleCard("tbilisi", "Three") }}
+</div><!-- layout -->
+</section>
+
+<hr>
+
+<section aria-labelledby="warsaw">
+<h3 id="warsaw">Warsaw</h3>
+<p><code>data-layout="warsaw"</code></p>
+<div class="layout" data-layout="warsaw">
+{{ exampleCard("warsaw", "One") }}
+{{ exampleCard("warsaw", "Two") }}
+{{ exampleCard("warsaw", "Three") }}
+</div><!-- layout -->
+</section>
+</section>
+
+<hr>
+
+<section aria-labelledby="twelve-column-layouts">
+<h2 id="twelve-column-layouts">12-column layouts</h2>
+
+<section aria-labelledby="valletta-columns">
+<h3 id="valletta-columns">Valletta</h3>
+<p><code>data-layout="valletta"</code></p>
+<div class="layout" data-layout="valletta">
+{{ exampleCard("valletta", "One") }}
+{{ exampleCard("valletta", "Two") }}
+{{ exampleCard("valletta", "Three") }}
+{{ exampleCard("valletta", "Four") }}
+</div><!-- layout -->
+</section>
+
+<hr>
+
+<section aria-labelledby="vienna-columns">
+<h3 id="vienna-columns">Vienna</h3>
+<p><code>data-layout="vienna"</code></p>
+<div class="layout" data-layout="vienna">
+{{ exampleCard("vienna", "One") }}
+{{ exampleCard("vienna", "Two") }}
+{{ exampleCard("vienna", "Three") }}
+</div><!-- layout -->
+</section>
+
+<hr>
+
+<section aria-labelledby="vilnius-columns">
+<h3 id="vilnius-columns">Vilnius</h3>
+<p><code>data-layout="vilnius"</code></p>
+<div class="layout" data-layout="vilnius">
+{{ exampleCard("vilnius", "One") }}
+{{ exampleCard("vilnius", "Two") }}
+{{ exampleCard("vilnius", "Three") }}
+{{ exampleCard("vilnius", "Four") }}
+</div><!-- layout -->
+</section>
+</section>
+
+<hr>
+
+<section aria-labelledby="modular-layouts">
+<h2 id="modular-layouts">Modular layouts</h2>
+
+<section aria-labelledby="andorra-modular">
+<h3 id="andorra-modular">Andorra</h3>
+<p><code>data-layout="andorra"</code> on <code>.modular</code></p>
+<div class="modular" data-layout="andorra">
+{{ exampleCard("andorra", "One") }}
+{{ exampleCard("andorra", "Two") }}
+{{ exampleCard("andorra", "Three") }}
+{{ exampleCard("andorra", "Four") }}
+{{ exampleCard("andorra", "Five") }}
+</div><!-- modular -->
+</section>
+
+<hr>
+
+<section aria-labelledby="astana-modular">
+<h3 id="astana-modular">Astana</h3>
+<p><code>data-layout="astana"</code> on <code>.modular</code></p>
+<div class="modular" data-layout="astana">
+{{ exampleCard("astana", "One") }}
+{{ exampleCard("astana", "Two") }}
+{{ exampleCard("astana", "Three") }}
+{{ exampleCard("astana", "Four") }}
+{{ exampleCard("astana", "Five") }}
+{{ exampleCard("astana", "Six") }}
+</div><!-- modular -->
+</section>
+</section>
+</main>
+{% endblock %}

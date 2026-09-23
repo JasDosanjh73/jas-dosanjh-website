@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1550" role="img" aria-labelledby="title desc">
+<title id="title">4+6 compound grid layout recipes</title>
+<desc id="desc">Corrected 4+6 grid diagram showing named grid lines and city-based layout spans.</desc>
+<style>
+svg {
+background: #000;
+color: #fff;
+font-family: "Arial Black", "Arial Bold", sans-serif; }
+.title {
+fill: #fff;
+font-size: 32px;
+font-weight: 900; }
+.line-label {
+fill: #fff;
+font-size: 28px;
+font-weight: 900;
+text-anchor: middle;
+text-transform: uppercase; }
+.layout-label {
+fill: #fff;
+font-size: 26px;
+font-weight: 900;
+letter-spacing: .02em;
+text-transform: uppercase; }
+.layout-box {
+fill: transparent;
+stroke: #fff;
+stroke-width: 2; }
+.track-a {
+fill: #1a1a1a; }
+.track-b {
+fill: #242424; }
+.grid-line {
+stroke: #383838;
+stroke-width: 28; }
+</style>
+<rect width="1800" height="1550" fill="#000"/>
+<text class="title" x="24" y="36">4+6</text>
+<rect class="track track-a" x="220.00" y="140" width="223.33" height="1310"/>
+<rect class="track track-b" x="443.33" y="140" width="111.67" height="1310"/>
+<rect class="track track-a" x="555.00" y="140" width="111.67" height="1310"/>
+<rect class="track track-b" x="666.67" y="140" width="223.33" height="1310"/>
+<rect class="track track-a" x="890.00" y="140" width="223.33" height="1310"/>
+<rect class="track track-b" x="1113.33" y="140" width="111.67" height="1310"/>
+<rect class="track track-a" x="1225.00" y="140" width="111.67" height="1310"/>
+<rect class="track track-b" x="1336.67" y="140" width="223.33" height="1310"/>
+<line class="grid-line" x1="220.00" x2="220.00" y1="140" y2="1450"/>
+<text class="line-label" x="220.00" y="95">a1</text>
+<line class="grid-line" x1="443.33" x2="443.33" y1="140" y2="1450"/>
+<text class="line-label" x="443.33" y="95">b2</text>
+<line class="grid-line" x1="555.00" x2="555.00" y1="140" y2="1450"/>
+<text class="line-label" x="555.00" y="95">a2</text>
+<line class="grid-line" x1="666.67" x2="666.67" y1="140" y2="1450"/>
+<text class="line-label" x="666.67" y="95">b3</text>
+<line class="grid-line" x1="890.00" x2="890.00" y1="140" y2="1450"/>
+<text class="line-label" x="890.00" y="95">a3 b4</text>
+<line class="grid-line" x1="1113.33" x2="1113.33" y1="140" y2="1450"/>
+<text class="line-label" x="1113.33" y="95">b5</text>
+<line class="grid-line" x1="1225.00" x2="1225.00" y1="140" y2="1450"/>
+<text class="line-label" x="1225.00" y="95">a4</text>
+<line class="grid-line" x1="1336.67" x2="1336.67" y1="140" y2="1450"/>
+<text class="line-label" x="1336.67" y="95">b6</text>
+<line class="grid-line" x1="1560.00" x2="1560.00" y1="140" y2="1450"/>
+<text class="line-label" x="1560.00" y="95">a5</text>
+<text class="title" fill-opacity=".16" x="890" y="250" text-anchor="middle">Compound grid</text>
+<g>
+<rect class="layout-box" x="220.00" y="230" width="1340.00" height="48"/>
+<text class="layout-label" x="238" y="262">AMSTERDAM</text>
+</g>
+<g>
+<rect class="layout-box" x="220.00" y="322" width="670.00" height="48"/>
+<rect class="layout-box" x="1113.33" y="322" width="446.67" height="48"/>
+<text class="layout-label" x="238" y="354">ATHENS</text>
+</g>
+<g>
+<rect class="layout-box" x="220.00" y="414" width="670.00" height="48"/>
+<rect class="layout-box" x="890.00" y="414" width="335.00" height="48"/>
+<rect class="layout-box" x="1113.33" y="414" width="446.67" height="48"/>
+<text class="layout-label" x="238" y="446">BERLIN</text>
+</g>
+<g>
+<rect class="layout-box" x="220.00" y="506" width="670.00" height="48"/>
+<rect class="layout-box" x="890.00" y="506" width="223.33" height="48"/>
+<rect class="layout-box" x="1113.33" y="506" width="446.67" height="48"/>
+<text class="layout-label" x="238" y="538">BERN</text>
+</g>
+<g>
+<rect class="layout-box" x="220.00" y="598" width="335.00" height="48"/>
+<rect class="layout-box" x="666.67" y="598" width="223.33" height="48"/>
+<rect class="layout-box" x="890.00" y="598" width="335.00" height="48"/>
+<rect class="layout-box" x="1225.00" y="598" width="335.00" height="48"/>
+<text class="layout-label" x="238" y="630">COPENHAGEN</text>
+</g>
+<g>
+<rect class="layout-box" x="220.00" y="690" width="670.00" height="48"/>
+<rect class="layout-box" x="890.00" y="690" width="223.33" height="48"/>
+<rect class="layout-box" x="1113.33" y="690" width="446.67" height="48"/>
+<text class="layout-label" x="238" y="722">CARDIFF</text>
+</g>
+<g>
+<rect class="layout-box" x="220.00" y="782" width="223.33" height="48"/>
+<rect class="layout-box" x="555.00" y="782" width="670.00" height="48"/>
+<rect class="layout-box" x="1113.33" y="782" width="446.67" height="48"/>
+<text class="layout-label" x="238" y="814">DUBLIN</text>
+</g>
+<g>
+<rect class="layout-box" x="220.00" y="874" width="446.67" height="48"/>
+<rect class="layout-box" x="890.00" y="874" width="223.33" height="48"/>
+<rect class="layout-box" x="1113.33" y="874" width="446.67" height="48"/>
+<text class="layout-label" x="238" y="906">HELSINKI</text>
+</g>
+<g>
+<rect class="layout-box" x="220.00" y="966" width="223.33" height="48"/>
+<rect class="layout-box" x="555.00" y="966" width="335.00" height="48"/>
+<rect class="layout-box" x="890.00" y="966" width="335.00" height="48"/>
+<rect class="layout-box" x="1225.00" y="966" width="335.00" height="48"/>
+<text class="layout-label" x="238" y="998">LONDON</text>
+</g>
+<g>
+<rect class="layout-box" x="220.00" y="1058" width="670.00" height="48"/>
+<rect class="layout-box" x="890.00" y="1058" width="335.00" height="48"/>
+<rect class="layout-box" x="1113.33" y="1058" width="446.67" height="48"/>
+<text class="layout-label" x="238" y="1090">MADRID</text>
+</g>
+<g>
+<rect class="layout-box" x="220.00" y="1150" width="670.00" height="48"/>
+<rect class="layout-box" x="890.00" y="1150" width="670.00" height="48"/>
+<text class="layout-label" x="238" y="1182">PARIS</text>
+</g>
+<g>
+<rect class="layout-box" x="220.00" y="1242" width="670.00" height="48"/>
+<rect class="layout-box" x="890.00" y="1242" width="670.00" height="48"/>
+<text class="layout-label" x="238" y="1274">ROME</text>
+</g>
+<g>
+<rect class="layout-box" x="220.00" y="1334" width="223.33" height="48"/>
+<rect class="layout-box" x="666.67" y="1334" width="223.33" height="48"/>
+<rect class="layout-box" x="1113.33" y="1334" width="446.67" height="48"/>
+<text class="layout-label" x="238" y="1366">STOCKHOLM</text>
+</g>
+</svg>

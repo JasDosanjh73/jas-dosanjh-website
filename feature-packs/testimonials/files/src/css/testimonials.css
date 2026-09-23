@@ -1,0 +1,37 @@
+.testimonials-grid {
+display: grid;
+gap: var(--spacing-l) var(--grid-column-gap);
+grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); }
+
+.testimonials-scroller {
+display: grid;
+gap: var(--spacing-l);
+grid-auto-columns: minmax(18rem, 24rem);
+grid-auto-flow: column;
+overflow-x: auto;
+padding-block-end: var(--spacing-s);
+scroll-snap-type: x proximity; }
+
+.item-testimonial {
+display: grid;
+gap: var(--spacing-r);
+grid-template-columns: 64px 1fr;
+margin-block: 0;
+margin-trim: block;
+scroll-snap-align: start; }
+
+.item-testimonial svg {
+display: block;
+inline-size: 48px;
+margin-inline-start: auto; }
+
+.item-testimonial svg path {
+fill: var(--color-border); }
+
+.item-testimonial footer {
+display: block;
+margin-block-start: 0;
+text-align: left; }
+
+.item-testimonial small {
+display: block; }

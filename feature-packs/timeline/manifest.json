@@ -1,0 +1,16 @@
+{
+  "featureFlag": "timeline",
+  "mainNavigationItems": [
+    {
+      "text": "Timeline",
+      "url": "/timeline/"
+    }
+  ],
+  "footerNavigationItems": [
+    {
+      "text": "Timeline",
+      "url": "/timeline/"
+    }
+  ],
+  "cms": true
+}

@@ -1,0 +1,83 @@
+<div id="books" data-opposite="true">
+
+<article class="item-book">
+<figure>
+<a href="/four-book-bundle/"><img src="/images/cover-bundle.webp" alt="Signed bundle of the first four books"></a>
+</figure>
+</article><!-- item-book -->
+
+
+
+{% for item in collections.books %}
+<article class="item-book">
+{% if item.data.thumbnail %}<figure>
+<a href="{{ item.url }}" data-book-open aria-haspopup="dialog" aria-controls="books-dialog"><img src="{{ item.data.thumbnail }}" alt="{{ item.data.title }}" data-book-status="{{ item.data.status }}"></a>
+</figure>{% endif %}
+
+
+
+<style>
+.books-dialog[data-book="{{ item.fileSlug }}"] {
+background-color: {{ item.data.bgHEX }};
+background-image: url(/images/bg-texture.webp),
+{% if item.data.bgImg %}url("{{ item.data.bgImg }}"){% else %}none{% endif %};
+background-position: 50%, 90% 50%;
+background-repeat: no-repeat;
+background-size: cover, 65%; }
+
+.books-dialog[data-book="{{ item.fileSlug }}"] .btn {
+background-color: {% if item.data.accentHex %}{{ item.data.accentHex }}{% else %}var(--color-accent){% endif %}; }
+
+.books-dialog[data-book="{{ item.fileSlug }}"] .btn[data-type="secondary"] {
+background-color: rgba(255,255,255,.1); }
+</style>
+
+
+
+<template data-book-details="{{ item.fileSlug }}">
+
+<div>
+<p class="alt-brand">Life out of reach. Book {{ item.data.order }}</p>
+
+<h2 data-size="3xl"><a href="{{ item.url }}">{{ item.data.title }}</a></h2>
+
+{% if item.data.lede %}<p class="alt-lede">{{ item.data.lede }}</p>{% endif %}
+
+{% if item.data.sampleURL or item.data.ctaURL %}
+<div class="btn-cta">
+{% if item.data.sampleURL %}<a class="btn" href="/images/{{ item.data.sampleURL }}" data-type="secondary">Sample chapter</a>{% endif %}
+{% if item.data.ctaURL %}<a class="btn" href="{{ item.data.ctaURL }}" target="_blank" rel="noopener">Buy e-book</a>{% endif %}
+</div><!-- btn-cta -->
+{% else %}
+<p>Coming soon</p>
+{% endif %}
+</div><!-- one -->
+
+<div>
+{% if item.data.thumbnail %}<figure>
+<a href="{{ item.url }}"><img src="{{ item.data.thumbnail }}" alt="{{ item.data.title }}"></a>
+</figure>{% endif %}
+</div><!-- two -->
+
+</template>
+
+</article>
+{% endfor %}
+
+</div><!-- books -->
+
+
+
+<dialog class="books-dialog" id="books-dialog" aria-labelledby="books-dialog-title">
+
+<button class="btn" data-variant="c" title="Close" autofocus>
+<svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+<path d="m6 6 12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" />
+</svg>
+</button>
+
+<div class="books-dialog-body">
+<div class="books-dialog-content"></div><!-- books-dialog-content -->
+</div><!-- books-dialog-body -->
+
+</dialog>

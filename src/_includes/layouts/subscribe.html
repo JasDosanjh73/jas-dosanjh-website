@@ -1,0 +1,45 @@
+{% set assetHash = global.random() %}
+
+<!DOCTYPE html>
+<html lang="{{ site.lang }}">
+
+{% include "partials/head.html" %}
+
+<body id="{{ site.siteID }}">
+
+{% include "partials/analytics-body.html" %}
+
+{% include "partials/header.html" %}
+
+<div class="layout" data-layout="warsaw">
+
+<div>
+<h1 data-size="3xl">{{ title }}</h1>
+{{ lede | markdown | safe }}
+</div><!-- one -->
+
+</div><!-- layout -->
+
+
+
+{% include "partials/subscription-panel.html" %}
+
+
+<div class="layout" data-layout="warsaw">
+
+<div>
+<div class="alt-divider">
+{% include "partials/svgs/detail-leaf-4.svg" %}
+</div><!-- alt-divider -->
+{{ content | markdown | safe }}
+</div><!-- one -->
+
+</div><!-- layout -->
+
+
+
+{% include "partials/footer.html" %}
+<script src="{{ site.assetPath }}/js/scripts.js"></script>
+</body>
+
+</html>

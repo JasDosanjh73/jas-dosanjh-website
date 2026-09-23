@@ -1,0 +1,104 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+
+<div class="layout" data-layout="amsterdam">
+
+<div>
+<h1>{{ title }}</h1>
+
+{% if lede %}{{ lede | markdown | safe }}{% endif %}
+
+{% if collections.caseStudiesCategories.length %}
+<nav aria-label="Filter case studies by category">
+<ul class="filters" data-case-studies-filters>
+<li><a href="/case-studies/" aria-current="true" data-case-studies-filter="all">All</a></li>
+{% for category in collections.caseStudiesCategories %}
+<li><a href="/case-studies/category/{{ category | slug }}/" data-case-studies-filter="{{ category | slug }}">{{ category }}</a></li>
+{% endfor %}
+</ul>
+</nav>
+{% endif %}
+</div><!-- one -->
+
+</div><!-- layout -->
+
+<div class="modular" data-layout="astana" data-case-studies-browser>
+{% include "partials/case-studies-list.html" %}
+</div><!-- layout -->
+
+<script>
+(() => {
+const browser = document.querySelector("[data-case-studies-browser]");
+const filters = Array.from(document.querySelectorAll("[data-case-studies-filter]"));
+const results = document.querySelector("[data-case-studies-results]");
+
+if (!browser || !filters.length) {
+return;
+}
+
+const cards = Array.from(browser.querySelectorAll("[data-case-study-card]"));
+
+if (!cards.length) {
+return;
+}
+
+function getMatchingCards(filter) {
+if (filter === "all") {
+return cards;
+}
+
+return cards.filter((card) => {
+const categories = (card.getAttribute("data-case-study-categories") || "").split(" ").filter(Boolean);
+return categories.includes(filter);
+});
+}
+
+function updateActiveFilter(filter) {
+filters.forEach((link) => {
+if (link.getAttribute("data-case-studies-filter") === filter) {
+link.setAttribute("aria-current", "true");
+} else {
+link.removeAttribute("aria-current");
+}
+});
+}
+
+function updateResults(filter, count) {
+if (!results) {
+return;
+}
+
+if (filter === "all") {
+results.textContent = `${count} case stud${count === 1 ? "y" : "ies"}.`;
+return;
+}
+
+const activeLink = filters.find((link) => link.getAttribute("data-case-studies-filter") === filter);
+const label = activeLink ? activeLink.textContent.trim() : filter;
+results.textContent = `${count} case stud${count === 1 ? "y" : "ies"} in ${label}.`;
+}
+
+function render(filter) {
+const matchingCards = getMatchingCards(filter);
+
+cards.forEach((card) => {
+card.hidden = !matchingCards.includes(card);
+});
+
+updateActiveFilter(filter);
+updateResults(filter, matchingCards.length);
+}
+
+filters.forEach((link) => {
+link.addEventListener("click", (event) => {
+event.preventDefault();
+render(link.getAttribute("data-case-studies-filter") || "all");
+});
+});
+
+render("all");
+})();
+</script>
+
+{% endblock %}

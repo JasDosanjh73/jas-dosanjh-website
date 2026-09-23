@@ -1,0 +1,41 @@
+{
+  "name": "Jas Dosanjh",
+  "url": "https://jasdosanjh.com",
+  "lang": "en",
+  "locale": "en_GB",
+  "metaDesc": "",
+  "socialImage": "/images/[INSERT]",
+  "socialImageAlt": "",
+  "address1": "71-75 Shelton Street",
+  "address2": "Covent Garden",
+  "townCity": "London",
+  "postalZipCode": "WC2H 9JQ",
+  "country": "UK",
+  "siteID": "jasdosanjh-com",
+  "copyrightOwner": "Jas Dosanjh",
+  "email": "jas@jasdosanjh.com",
+  "telephone": "07592 526 192",
+  "bluesky": "",
+  "facebook": "https://www.facebook.com/jasdosanjh1973/",
+  "goodreads": "https://www.goodreads.com/jasdosanjh",
+  "imdb": "",
+  "instagram": "https://www.instagram.com/jasdosanjh73",
+  "linkedin": "https://www.linkedin.com/in/jasdosanjh73/",
+  "threads": "",
+  "tiktok": "",
+  "youtube": "https://www.youtube.com/c/JasDosanjh73",
+  "analytics": {
+    "googleAnalyticsId": "",
+    "googleTagManagerId": "",
+    "plausibleDomain": "",
+    "plausibleScriptSrc": "https://plausible.io/js/script.js",
+    "umamiScriptSrc": "https://cloud.umami.is/script.js",
+    "umamiWebsiteId": ""
+  },
+  "fonts": {
+    "mode": "none",
+    "googleFontsUrl": "",
+    "preconnectGoogleFonts": true,
+    "stylesheet": ""
+  }
+}

@@ -1,0 +1,21 @@
+{% extends "layouts/base.html" %}
+
+{% set pageHeaderTitle = title %}
+
+{% block content %}
+
+<div class="layout" data-layout="tbilisi">
+<div>
+
+{% if displayTitle %}
+<h1 data-size="3xl">{{ title }}</h1>
+{% else %}
+<h1>{{ title }}</h1>
+{% endif %}
+
+{{ content | safe }}
+
+</div><!-- one -->
+</div><!-- layout -->
+
+{% endblock %}

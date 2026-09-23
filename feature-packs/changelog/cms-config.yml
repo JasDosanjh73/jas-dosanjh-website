@@ -1,0 +1,54 @@
+pagesFiles:
+  - label: "Changelog"
+    name: "changelog"
+    file: "src/changelog.md"
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "layouts/changelog.html" }
+      - { label: "Permalink", name: "permalink", widget: "hidden", default: "/changelog/" }
+      - { label: "Title", name: "title", widget: "string", default: "Changelog" }
+      - { label: "Meta description", name: "metaDesc", widget: "text", required: false }
+      - { label: "Lede", name: "lede", widget: "markdown", required: false }
+      - { label: "Latest releases shown before previous versions", name: "latestCount", widget: "number", value_type: "int", min: 1, default: 3 }
+      - { label: "Previous versions label", name: "previousVersionsLabel", widget: "string", default: "Previous versions" }
+collections:
+  - name: "changelog"
+    label: "Changelog"
+    folder: "src/changelog"
+    create: true
+    slug: "{{slug}}"
+    preview_path: "changelog"
+    fields:
+      - { label: "Version", name: "version", widget: "string" }
+      - { label: "Release date", name: "releaseDate", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+      - { label: "Order", name: "order", widget: "number", value_type: "int", min: 1, required: false }
+      - { label: "Status label", name: "statusLabel", widget: "string", required: false, hint: "For example: Paid upgrade" }
+      - { label: "Status tone", name: "statusTone", widget: "select", required: false, options: ["default", "info", "warning"] }
+      - label: "Requirements"
+        name: "requirements"
+        widget: "list"
+        required: false
+        field: { label: "Requirement", name: "requirement", widget: "string" }
+      - label: "Downloads"
+        name: "downloads"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Label", name: "label", widget: "string" }
+          - { label: "URL", name: "url", widget: "string" }
+      - label: "Callouts"
+        name: "callouts"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown", required: false }
+          - { label: "URL", name: "url", widget: "string", required: false }
+          - { label: "Link text", name: "linkText", widget: "string", required: false }
+          - { label: "Tone", name: "tone", widget: "select", required: false, options: ["default", "info", "warning"] }
+      - label: "Changes"
+        name: "changes"
+        widget: "list"
+        fields:
+          - { label: "Type", name: "type", widget: "string", hint: "For example: Feature or Bugfix" }
+          - { label: "Summary", name: "summary", widget: "markdown" }
+      - { label: "Body", name: "body", widget: "markdown", required: false }

@@ -1,0 +1,51 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+
+<div class="layout" data-layout="athens">
+
+<div>
+
+{% if image %}
+<img src="/images/{{ image }}" alt="{{ name }}">
+{% endif %}
+
+<h1>{{ name }}</h1>
+
+{% if qualifications %}<p>{{ qualifications }}</p>{% endif %}
+
+{% if location %}<p>{{ location }}</p>{% endif %}
+
+{% if summary %}<p>{{ summary }}</p>{% endif %}
+
+{% if email %}<a href="mailto:{{ email }}">{% include "partials/icons/icon-email.svg" %}<span data-visibility="hidden">Email</span></a>{% endif %}
+
+{% if linkedin %}<a href="{{ linkedin }}">{% include "partials/icons/icon-linkedin.svg" %}<span data-visibility="hidden">LinkedIn</span></a>{% endif %}
+
+{% if url %}<a href="{{ url }}">{% include "partials/icons/icon-url.svg" %}<span data-visibility="hidden">Website</span></a>{% endif %}
+
+</div><!-- one -->
+
+<div>
+{% set otherMembers = helpers.getSiblingContent(collections.team, page, 2, false) %}
+{% for member in otherMembers %}
+<article class="item-team-list">
+
+{% if member.data.image %}
+<div>
+{% if member.url %}<a href="{{ member.url }}">{% endif %}<img src="/images/{{ member.data.image }}" alt="{{ member.data.name }}">{% if member.url %}</a>{% endif %}
+</div><!-- one -->
+{% endif %}
+
+<div>
+<h3><a href="{{ member.url }}">{{ member.data.name }}</a></h3>
+{% if member.data.role %}{{ member.data.role }}{% if member.data.location %} • {{ member.data.location }}{% endif %}{% endif %}
+</div><!-- two -->
+</article>
+{% endfor %}
+
+</div><!-- two -->
+
+</div><!-- layout -->
+
+{% endblock %}

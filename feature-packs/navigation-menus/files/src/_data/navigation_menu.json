@@ -1,0 +1,39 @@
+{
+  "variant": "overlay-large",
+  "buttonLabel": "Menu",
+  "closeLabel": "Close",
+  "eyebrow": "An Eleventy starter kit by Andy Clarke",
+  "heading": "Eleventy in a Box",
+  "intro": "Eleventy in a Box takes everything we’ve learned about developing with Eleventy and packages it into a dependable starting point. No unnecessary extras. No hidden surprises. Just a system that works",
+  "secondaryItems": [
+    {
+      "text": "Home",
+      "url": "/"
+    },
+    {
+      "text": "Privacy",
+      "url": "/privacy/"
+    }
+  ],
+  "featureItems": [
+    {
+      "title": "About",
+      "url": "/about/",
+      "summary": "Lorem ipsum dolor set"
+    },
+    {
+      "title": "Contact",
+      "url": "/contact/",
+      "summary": "Lorem ipsum dolor set"
+    },
+    {
+      "title": "Home",
+      "url": "/",
+      "summary": "Lorem ipsum dolor set"
+    }
+  ],
+  "cta": {
+    "text": "Contact us",
+    "url": "/contact/"
+  }
+}

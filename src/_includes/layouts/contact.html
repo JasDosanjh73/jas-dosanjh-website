@@ -1,0 +1,149 @@
+{% set assetHash = global.random() %}
+
+<!DOCTYPE html>
+<html lang="{{ site.lang }}">
+
+{% include "partials/head.html" %}
+
+<body id="{{ site.siteID }}">
+
+<div data-style="reversed">
+
+{% include "partials/analytics-body.html" %}
+
+{% include "partials/header.html" %}
+
+
+<div class="layout" data-layout="amsterdam">
+
+<div style="margin-block-end: var(--spacing-l);">
+<h1 data-size="3xl">{{ title }}</h1>
+</div><!-- one -->
+
+</div><!-- layout -->
+
+
+
+<div class="layout" data-layout="dublin">
+
+<div>
+{% if lede %}{{ lede | markdown | safe }}{% endif %}
+{% if intro %}<p>{{ intro | safe }}</p>{% endif %}
+
+<hr data-decoration="thin">
+
+{% set hasAddress = site.address1 or site.address2 or site.townCity or site.postalZipCode %}
+{% if hasAddress %}<ul class="alt-">{% endif %}
+{% if site.address1 %}<li>{{ site.address1 }}</li>{% endif %}
+{% if site.address2 %}<li>{{ site.address2 }}</li>{% endif %}
+{% if site.townCity %}<li>{{ site.townCity }}</li>{% endif %}
+{% if site.postalZipCode %}<li>{{ site.postalZipCode }}</li>{% endif %}
+{% if hasAddress %}</ul>{% endif %}
+</div><!-- one -->
+
+<div>
+<form action="/thanks/" class="contact-form" data-netlify="true" method="POST" name="contact-form" netlify-honeypot="bot-field">
+<input type="hidden" name="form-name" value="contact-form">
+<p hidden>
+<label>Don&#8217;t fill this out: <input name="bot-field"></label>
+</p>
+
+<div data-layout="flex">
+
+<div>
+<label for="contact-name">Name</label>
+<input type="text" name="contact-name" id="contact-name" required>
+</div><!-- one -->
+
+<div>
+<label for="contact-company">Company <span>(Optional)</span></label>
+<input type="text" name="contact-company" id="contact-company">
+</div><!-- two -->
+
+</div><!-- layout -->
+
+<div data-layout="flex">
+
+<div>
+<label for="contact-email">Email</label>
+<input type="email" name="contact-email" id="contact-email" required>
+</div><!-- one -->
+
+<div>
+<label for="contact-tel">Phone</label>
+<input type="tel" name="contact-tel" id="contact-tel">
+</div><!-- two -->
+
+</div><!-- layout -->
+
+<div>
+<label for="contact-message">Message</label>
+<textarea name="contact-message" id="contact-message"></textarea>
+</div>
+
+<div data-align-h="right">
+<button class="btn">Submit</button>
+</div><!-- align -->
+
+</form>
+</div><!-- two -->
+
+<div>
+{% if blockOneHeadline %}<h4>{{ blockOneHeadline | safe }}</h4>{% endif %}
+{% if blockOne %}<p>{{ blockOne | safe }}</p>{% endif %}
+{% if site.email %}<p class="alt-email"><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>{% endif %}
+{% include "partials/socials.html" %}
+</div><!-- three -->
+
+</div><!-- layout -->
+
+
+
+<div class="alt-divider">
+{% include "partials/svgs/detail-leaf-1.svg" %}
+</div><!-- alt-divider -->
+
+
+
+<div class="layout" data-layout="amsterdam">
+<div>
+{% include "partials/subscription-panel.html" %}
+</div><!-- one -->
+</div><!-- layout -->
+
+
+
+<div class="alt-divider">
+{% include "partials/svgs/detail-leaf-2.svg" %}
+</div><!-- alt-divider -->
+
+
+
+<div class="layout" data-layout="warsaw">
+
+<div>
+
+{% if features.faqs and collections.faqItems.length %}
+<h2>Frequently asked questions</h2>
+
+{% for item in collections.faqItems %}
+<details class="item-faq">
+<summary>{{ item.data.question }}</summary>
+{{ item.data.answer | markdown | safe }}
+</details>
+{% endfor %}
+{% endif %}
+
+</div><!-- one -->
+
+</div><!-- layout -->
+
+
+{% include "partials/footer.html" %}
+
+</div><!-- data-theme -->
+
+<script src="{{ site.assetPath }}/js/scripts.js"></script>
+</body>
+
+</html>

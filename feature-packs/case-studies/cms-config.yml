@@ -1,0 +1,47 @@
+pagesFiles:
+  - label: "Case studies"
+    name: "case_studies"
+    file: "src/case-studies.md"
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "layouts/case-studies.html" }
+      - { label: "Permalink", name: "permalink", widget: "hidden", default: "/case-studies/" }
+      - { label: "Title", name: "title", widget: "string", default: "Case studies" }
+      - { label: "Meta description", name: "metaDesc", widget: "text", required: false }
+      - { label: "Lede", name: "lede", widget: "markdown", required: false }
+collections:
+  - name: "case_studies"
+    label: "Case studies"
+    folder: "src/case-studies"
+    create: true
+    slug: "{{slug}}"
+    preview_path: "case-studies/{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Client name", name: "clientName", widget: "string" }
+      - { label: "Client logo", name: "clientLogo", widget: "image", required: false, media_folder: "src/images/case-studies", public_folder: "/images/case-studies" }
+      - label: "Categories"
+        name: "categories"
+        widget: "list"
+        required: false
+        field: { label: "Category", name: "category", widget: "string" }
+      - label: "Deliverables"
+        name: "deliverables"
+        widget: "list"
+        required: false
+        field: { label: "Deliverable", name: "deliverable", widget: "string" }
+      - { label: "Image", name: "image", widget: "image", required: false, media_folder: "src/images/case-studies", public_folder: "/images/case-studies" }
+      - { label: "Thumbnail image", name: "thumbnail", widget: "image", required: false, media_folder: "src/images/case-studies", public_folder: "/images/case-studies" }
+      - { label: "Lede", name: "lede", widget: "text" }
+      - { label: "Meta description", name: "metaDesc", widget: "text", required: false }
+      - label: "Outcomes"
+        name: "outcomes"
+        widget: "list"
+        required: false
+        field: { label: "Outcome", name: "outcome", widget: "string" }
+      - { label: "Quotation", name: "quotation", widget: "text", required: false }
+      - { label: "Order", name: "order", widget: "number", value_type: "int", min: 1, required: false }
+      - { label: "Featured", name: "featured", widget: "boolean", required: false, default: false }
+      - { label: "Slug", name: "slug", widget: "string", required: false }
+      - { label: "Year", name: "year", widget: "number", value_type: "int", required: false }
+      - { label: "Project URL", name: "projectUrl", widget: "string", required: false }
+      - { label: "Body", name: "body", widget: "markdown", required: false }

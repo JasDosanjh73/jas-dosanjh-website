@@ -1,0 +1,23 @@
+<header role="banner">
+
+<div class="layout" data-layout="tallinn">
+
+<div id="banner-logo">
+<a href="/" aria-label="{{ site.name }}" title="Home">{% include "partials/svgs/logo.svg" %}<span data-visibility="hidden">{{ site.name }}</span></a>
+</div><!-- banner-logo -->
+
+{% if features.navigationMenus %}
+{% include "partials/navigation-menu.html" %}
+{% else %}
+<nav data-navigation-body="bar" aria-label="Primary">
+<ul>
+{% for item in navigation.items %}
+<li><a href="{{ item.url }}" {{ helpers.getLinkActiveState(item.url, page.url) | safe }}>{{ item.text }}</a></li>
+{% endfor %}
+</ul>
+</nav>
+{% endif %}
+
+</div><!-- layout -->
+
+</header>

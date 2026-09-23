@@ -1,0 +1,37 @@
+{% extends "layouts/base.html" %}
+
+{% set pageHeaderTitle = title %}
+
+{% block content %}
+
+<h1>{{ pageHeaderTitle }}</h1>
+
+<div class="layout" data-layout="vienna">
+
+{% for member in collections.team %}
+<article class="item-team">
+
+{% if member.data.image %}
+<figure>
+{% if member.url %}<a href="{{ member.url }}">{% endif %}<img src="/images/{{ member.data.image }}" alt="{{ member.data.name }}">{% if member.url %}</a>{% endif %}
+{% if member.data.role %}<figcaption>{{ member.data.role }} {% if member.data.location %}• {{ member.data.location }}{% endif %}</figcaption>{% endif %}
+</figure>
+{% endif %}
+
+<h2><a href="{{ member.url }}">{{ member.data.name }}</a> <span>{{ member.data.qualifications }}</span></h2>
+
+{% if member.data.summary %}<p>{{ member.data.summary }}</p>{% endif %}
+
+<ul class="alt-inline">
+{% if member.data.email %}<li><a href="mailto:{{ member.data.email }}">{% include "partials/icons/icon-email.svg" %}<span data-visibility="hidden">Email</span></a></li>{% endif %}
+
+{% if member.data.url %}<li><a href="{{ member.data.url }}">{% include "partials/icons/icon-url.svg" %}<span data-visibility="hidden">Website</span></a></li>{% endif %}
+
+{% if member.data.linkedin %}<li><a href="{{ member.data.linkedin }}">{% include "partials/icons/icon-linkedin.svg" %}<span data-visibility="hidden">LinkedIn</span></a></li>{% endif %}
+</ul>
+</article>
+{% endfor %}
+
+</div><!-- layout -->
+
+{% endblock %}

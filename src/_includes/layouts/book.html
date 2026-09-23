@@ -1,0 +1,113 @@
+{% set assetHash = global.random() %}
+
+<!DOCTYPE html>
+<html lang="{{ site.lang }}">
+
+{% include "partials/head.html" %}
+
+<body id="{{ site.siteID }}">
+
+{% include "partials/analytics-body.html" %}
+
+<div id="book" data-style="reversed" style="background-color: {{ bgHEX }}">
+
+{% include "partials/header.html" %}
+
+<div class="layout" data-layout="rome">
+
+<div>
+
+{% if pubDate or pageCount or format %}
+<small class="item-meta">{% if pubDate %}{{ pubDate }}{% endif %}{% if pageCount %}{% if pubDate %} • {% endif %}{{ pageCount }} pages{% endif %}{% if format %}{% if pubDate or pageCount %} • {% endif %}{{ format }}{% endif %}</small>
+{% endif %}
+
+<p class="alt-lede">Life out of reach. Book {{ order }}</p>
+
+<h1 data-size="4xl">{{ title }}</h1>
+
+{% if tagline %}<p class="alt-tagline">{{ tagline }}</p>{% endif %}
+
+{% if lede %}<p class="alt-lede">{{ lede }}</p>{% endif %}
+
+{{ postSummary | markdown | safe }}
+
+{% if sampleURL or ctaURL %}
+<div class="btn-cta">
+{% if sampleURL %}<a class="btn" href="/images/{{ sampleURL }}" data-type="secondary">Sample chapter</a>{% endif %} &nbsp;
+{% if ctaURL %}<a class="btn" href="{{ ctaURL }}" target="_blank" rel="noopener">Buy e-book</a>{% endif %}
+</div><!-- btn-cta -->
+{% else %}
+<p>Coming soon</p>
+{% endif %}
+
+{% if pullQuote %}<blockquote data-variant="m">
+{% include "partials/svgs/detail-leaf-1.svg" %}
+{{ pullQuote | markdown | safe }}
+</blockquote>{% endif %}
+
+</div><!-- one -->
+
+<div>
+
+{% if image %}
+<figure>
+<img src="{{ image }}" alt="{{ title }}" data-book-status="{{ status }}">
+<figcaption class="item-meta">{% if language %}{{ language }}{% endif %}
+{% if readingAge %}{% if language %} • Reading age: {% endif %}{{ readingAge }}{% endif %}</figcaption>
+</figure>
+{% endif %}
+
+</div><!-- two -->
+
+</div><!-- layout -->
+
+</div><!-- data-theme -->
+
+
+
+<hr data-function="spacer">
+
+
+{% if content %}<div class="layout" data-layout="amsterdam">
+
+<div class="alt-columns">
+{{ content | safe }}
+
+{% if ASIN or ISBN10 or ISBN13 %}<hr data-decoration="thin">{% endif %}
+
+{% if ASIN or ISBN10 or ISBN13 %}
+<ul class="alt-inline">
+{% if ASIN %}<li>ASIN: {{ ASIN }}</li>{% endif %}
+{% if ISBN10 %}<li>ISBN-10: {{ ISBN10 }}</li>{% endif %}
+{% if ISBN13 %}<li>ISBN-13: {{ ISBN13 }}</li>{% endif %}
+</ul>
+{% endif %}
+</div><!-- one -->
+
+</div><!-- layout -->{% endif %}
+
+
+
+{% include "partials/book-list.html" %}
+
+{% if reviews.length %}
+<h2>{{ title }} reviews</h2>
+
+<div class="layout" data-layout="vienna">
+
+{% for review in reviews.slice(0, 12) %}
+<blockquote data-variant="r">
+{% include "partials/svgs/detail-leaf-2.svg" %}
+<p>{{ review.text }}</p>
+<footer>{{ review.footer }}</footer>
+</blockquote>
+{% endfor %}
+
+</div><!-- layout -->
+{% endif %}
+
+{% include "partials/footer.html" %}
+<script src="{{ site.assetPath }}/js/scripts.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<head>
+
+<meta charset="utf-8">
+
+<script>
+(() => {
+const identityTokens = ["invite_token", "recovery_token", "confirmation_token", "email_change_token"];
+const { hash, pathname } = window.location;
+if (!hash || pathname.startsWith("/admin/") || pathname === "/admin") {
+return;
+}
+
+if (!identityTokens.some((token) => hash.includes(token))) {
+return;
+}
+
+window.location.replace(`/admin/${hash}`);
+})();
+</script>
+
+{% include "partials/meta.html" %}
+{% include "partials/json-ld.html" %}
+{% include "partials/analytics-head.html" %}
+
+<meta name="theme-color" content="#DB0B2F">
+
+{% if features.blog %}
+<link rel="alternate" type="application/rss+xml" href="{{ site.assetPath }}/feed.xml" />
+{% endif %}
+{% if features.portfolio %}
+<link rel="alternate" type="application/rss+xml" href="{{ site.assetPath }}/portfolio/feed.xml" />
+{% endif %}
+<link rel="stylesheet" href="{{ site.assetPath }}/css/critical.css">
+{% if features.caseStudies %}
+<link rel="stylesheet" href="{{ site.assetPath }}/css/case-studies.css">
+{% endif %}
+{% if features.changelog %}
+<link rel="stylesheet" href="{{ site.assetPath }}/css/changelog.css">
+{% endif %}
+{% if features.faqs %}
+<link rel="stylesheet" href="{{ site.assetPath }}/css/faqs.css">
+{% endif %}
+{% if features.navigationMenus %}
+<link rel="stylesheet" href="{{ site.assetPath }}/css/navigation-menus.css">
+{% endif %}
+{% if features.portfolio %}
+<link rel="stylesheet" href="{{ site.assetPath }}/css/portfolio.css">
+{% endif %}
+{% if features.testimonials %}
+<link rel="stylesheet" href="{{ site.assetPath }}/css/testimonials.css">
+{% endif %}
+{% if features.team %}
+<link rel="stylesheet" href="{{ site.assetPath }}/css/team.css">
+{% endif %}
+{% if features.timeline %}
+<link rel="stylesheet" href="{{ site.assetPath }}/css/timeline.css">
+{% endif %}
+{% if site.fonts.mode == "google" and site.fonts.googleFontsUrl %}
+{% if site.fonts.preconnectGoogleFonts %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+{% endif %}
+<link href="{{ site.fonts.googleFontsUrl }}" rel="stylesheet">
+{% endif %}
+{% if site.fonts.mode == "self-hosted" and site.fonts.stylesheet %}
+{% set fontStylesheetUrl = site.fonts.stylesheet %}
+{% if site.assetPath and fontStylesheetUrl.startsWith("/") %}
+{% set fontStylesheetUrl = site.assetPath + fontStylesheetUrl %}
+{% endif %}
+<link rel="stylesheet" href="{{ fontStylesheetUrl }}">
+{% endif %}
+
+</head>

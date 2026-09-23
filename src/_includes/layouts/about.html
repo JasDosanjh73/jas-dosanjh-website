@@ -1,0 +1,121 @@
+{% set assetHash = global.random() %}
+
+<!DOCTYPE html>
+<html lang="{{ site.lang }}">
+
+{% include "partials/head.html" %}
+
+<body id="{{ site.siteID }}">
+
+{% include "partials/analytics-body.html" %}
+
+{% include "partials/header.html" %}
+
+<div class="layout" data-layout="rome">
+
+<div>
+{% if featureImage %}
+<figure>
+<img src="{{ featureImage }}" alt="{{ featureImageCaption }}" />
+{% if featureImageCaption %}
+<figcaption>{{ featureImageCaption }}</figcaption>
+{% endif %}
+</figure>
+{% endif %}
+
+<blockquote data-variant="m">
+{% include "partials/svgs/detail-leaf-1.svg" %}
+{{ quoteOne | markdown | safe }}
+</blockquote>
+
+</div><!-- one -->
+
+<div>
+<h1 data-size="3xl">{{ title }}</h1>
+
+{{ lede | markdown | safe }}
+{{ blockOne | markdown | safe }}
+
+{% if blockTwo %}
+<div class="btn-cta">
+<a class="btn" href="#extended" data-about-open>Read more</a>
+</div><!-- btn-cta -->
+
+<dialog class="about-dialog">
+
+<button class="btn" data-variant="c" title="Close" data-about-close autofocus>
+<svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+<path d="m6 6 12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" />
+</svg>
+</button>
+
+<h2 data-size="2xl">{{ title }}</h2>
+
+{{ lede | markdown | safe }}
+{{ blockOne | markdown | safe }}
+
+<hr id="extended" data-decoration="thin">
+
+{{ blockTwo | markdown | safe }}
+</dialog>
+{% endif %}
+
+</div><!-- two -->
+
+</div><!-- layout -->
+
+
+
+<hr data-function="spacer">
+
+
+
+<div class="layout" data-layout="rome">
+
+<div>
+{{ blockThree | markdown | safe }}
+{% include "partials/svgs/about-data-1.svg" %}
+
+<hr data-decoration="thin">
+
+{{ blockFour | markdown | safe }}
+{% include "partials/svgs/about-data-2.svg" %}
+
+<hr data-decoration="thin">
+
+<blockquote data-variant="m">
+{% include "partials/svgs/detail-leaf-1.svg" %}
+{{ quoteTwo | markdown | safe }}
+</blockquote>
+
+</div><!-- one -->
+
+<div>
+{% include "partials/timeline.html" %}
+</div><!-- two -->
+
+</div><!-- layout -->
+
+
+
+<hr data-function="spacer">
+
+
+
+{% include "partials/book-list.html" %}
+
+
+
+<hr data-function="spacer">
+
+
+<h2 data-align-h="center">Three ways to subscribe</h2>
+{% include "partials/subscription-panel.html" %}
+
+
+
+{% include "partials/footer.html" %}
+<script src="{{ site.assetPath }}/js/scripts.js"></script>
+</body>
+
+</html>

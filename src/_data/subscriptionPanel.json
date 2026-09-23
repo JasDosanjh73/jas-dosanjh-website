@@ -1,0 +1,20 @@
+{
+  "newsletter": {
+    "heading": "Get occasional updates from Jas straight to your inbox",
+    "description": "Sign up to my email newsletter and get the first chapter of Spare Burden free.",
+    "buttonLabel": "Coming soon",
+    "buttonUrl": ""
+  },
+  "paid": {
+    "heading": "Waddling member",
+    "description": "Paid subscribers receive four exclusive pieces monthly: memoir extras, updates, Q&As and personal archives. £5.99 per month.",
+    "buttonLabel": "Coming soon",
+    "buttonUrl": ""
+  },
+  "free": {
+    "heading": "Paddling member (free)",
+    "description": "Subscribe for free: two new pieces each month on family, culture and becoming yourself.",
+    "buttonLabel": "Coming soon",
+    "buttonUrl": ""
+  }
+}

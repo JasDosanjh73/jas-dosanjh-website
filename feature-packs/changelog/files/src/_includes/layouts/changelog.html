@@ -1,0 +1,52 @@
+{% extends "layouts/base.html" %}
+
+{% set changelogEntries = collections.changelogEntries or [] %}
+{% set visibleLatestCount = latestCount or 3 %}
+{% set hasPreviousVersions = changelogEntries.length > visibleLatestCount %}
+
+{% block content %}
+
+<div class="layout" data-layout="amsterdam">
+<div>
+
+<h1>{{ title }}</h1>
+
+{% if lede %}
+{{ lede | markdown | safe }}
+{% endif %}
+
+{% if hasPreviousVersions %}
+<p><a class="btn" data-variant="s" href="#previous-versions">{{ previousVersionsLabel or "Previous versions" }}</a></p>
+{% endif %}
+
+</div><!-- one -->
+</div><!-- layout -->
+
+{% if changelogEntries.length %}
+<section aria-labelledby="latest-releases">
+
+<h2 class="visually-hidden" id="latest-releases">Latest releases</h2>
+{% for item in changelogEntries %}
+{% if loop.index <= visibleLatestCount %}
+{% set entry = item %}
+{% include "partials/changelog-entry.html" %}
+{% endif %}
+{% endfor %}
+</section>
+
+{% if hasPreviousVersions %}
+<section id="previous-versions">
+<h2>{{ previousVersionsLabel or "Previous versions" }}</h2>
+{% for item in changelogEntries %}
+{% if loop.index > visibleLatestCount %}
+{% set entry = item %}
+{% include "partials/changelog-entry.html" %}
+{% endif %}
+{% endfor %}
+</section>
+{% endif %}
+{% else %}
+<p>No changelog entries yet.</p>
+{% endif %}
+
+{% endblock %}

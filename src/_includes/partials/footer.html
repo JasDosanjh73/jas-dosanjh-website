@@ -1,0 +1,24 @@
+<footer role="contentinfo">
+
+<div id="footer-logo">
+<a href="#{{ site.siteID }}" title="Top">{% include "partials/svgs/logo.svg" %}<span data-visibility="hidden">{{ site.name }}</span></a>
+</div><!-- footer-logo -->
+
+<ul class="alt-inline">
+{% for item in footer_navigation.items %}
+<li><a href="{{ item.url }}"{{ helpers.getLinkActiveState(item.url, page.url) | safe }}>{{ item.text }}</a></li>
+{% endfor %}
+</ul>
+
+{% include "partials/socials.html" %}
+
+<small>&#169; {{ global.currentYear() }}&#8211;now. {{ site.copyrightOwner or site.name }}. All Rights Reserved</small>
+
+<small>Registered in England &#38; Wales. Company &#8470; 07308743.<br>
+Registered with the Information Commissioner&#8217;s Office (ICO) ZB070129</small>
+
+<small>Website design by <a href="https://stuffandnonsense.co.uk">Stuff &#38; Nonsense</a></small>
+
+<p>{% include "partials/svgs/logo-fsb.svg" %} &nbsp; {% include "partials/svgs/logo-ico.svg" %}</p>
+
+</footer>

@@ -1,0 +1,11 @@
+{
+  "featureFlag": "testimonials",
+  "mainNavigationItems": [],
+  "footerNavigationItems": [
+    {
+      "text": "Testimonials",
+      "url": "/testimonials/"
+    }
+  ],
+  "cms": true
+}

@@ -1,0 +1,97 @@
+{% set assetHash = global.random() %}
+{% set recommendedPosts = helpers.getSiblingContent(collections.blog, page, 6, false) %}
+
+<!DOCTYPE html>
+<html lang="{{ site.lang }}">
+
+{% include "partials/head.html" %}
+
+<body id="{{ site.siteID }}">
+
+{% include "partials/analytics-body.html" %}
+
+{% include "partials/header.html" %}
+
+{% if featureImage %}<figure>
+<img src="{{ featureImage }}" alt="{{ featureImageCaption }}">
+{% if featureImageCaption %}
+<figcaption>{{ featureImageCaption }}</figcaption>
+{% endif %}
+</figure>{% endif %}
+
+
+
+<div class="layout" data-layout="tbilisi">
+
+<div>
+
+{% if image %}
+<figure>
+<img src="{{ image }}" alt="{{ title }}">
+<figcaption class="item-meta">{{ (date or page.date) | dateFilter }}</figcaption>
+</figure>
+{% endif %}
+
+<h1 data-size="3xl">{{ title }}</h1>
+
+{% if lede %}<p class="alt-lede">{{ lede | safe }}</p>{% endif %}
+
+{{ content | safe }}
+
+<small class="item-meta">{{ postAuthor }}
+{% if postTags %}
+ •
+{% for tag in postTags %}
+<span class="tag">{{ tag }}</span>{% if not loop.last %} • {% endif %}
+{% endfor %}
+{% endif %}
+</small>
+
+<hr data-decoration="thin">
+
+<h3>If this world feels familiar</h3>
+
+<p class="alt-lede">Start reading my Life Out of Reach memoirs.</p>
+
+</div><!-- one -->
+
+</div><!-- layout -->
+
+
+
+{% include "partials/book-list.html" %}
+
+
+
+<div class="alt-divider">
+{% include "partials/svgs/detail-leaf-1.svg" %}
+</div><!-- alt-divider -->
+
+
+
+{% if recommendedPosts %}
+<div class="layout" data-layout="tbilisi">
+
+<div>
+
+<h2>More posts</h2>
+
+{% for item in recommendedPosts %}
+<article class="item-post-list">
+<h2><a href="{{ item.url }}">{{ item.data.title }}</a></h2>
+<p>{{ item.data.postSummary }}</p>
+</article>
+{% endfor %}
+</div><!-- one -->
+
+</div><!-- layout -->
+{% endif %}
+
+
+
+{% include "partials/footer.html" %}
+
+<script src="{{ site.assetPath }}/js/scripts.js"></script>
+</body>
+
+</html>

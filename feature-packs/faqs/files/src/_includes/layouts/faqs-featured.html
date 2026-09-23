@@ -1,0 +1,50 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+
+<div class="layout" data-layout="tbilisi">
+<div>
+
+<h1>{{ title }}</h1>
+
+{% if lede %}
+{{ lede | markdown | safe }}
+{% endif %}
+
+<div class="layout" data-layout="vienna">
+
+{% for item in collections.featuredFaqs %}
+<article class="item-faq">
+<h3>{{ item.data.question }}</h3>
+{{ item.data.answer | markdown | safe }}
+</article>
+{% endfor %}
+
+</div><!-- layout -->
+
+<hr>
+
+<h2>More FAQs</h2>
+
+{% for category in collections.faqCategories %}
+{% set categoryFaqs = collections.nonFeaturedFaqs | filterFaqsByCategory(category) %}
+{% if categoryFaqs.length %}
+<section>
+<h2>{{ category }}</h2>
+{% for item in categoryFaqs %}
+{% set faqId = "faq-" + item.fileSlug %}
+<details class="item-faq">
+<summary id="{{ faqId }}-question">{{ item.data.question }}</summary>
+<div role="region" aria-labelledby="{{ faqId }}-question">
+{{ item.data.answer | markdown | safe }}
+</div>
+</details>
+{% endfor %}
+</section>
+{% endif %}
+{% endfor %}
+
+</div>
+</div>
+
+{% endblock %}

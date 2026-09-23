@@ -1,0 +1,48 @@
+{
+  "name": "eleventy-in-a-box",
+  "version": "1.0.0",
+  "description": "Eleventy in a Box is a reusable Eleventy starter with optional feature packs and Netlify CMS.",
+  "main": ".eleventy.js",
+  "scripts": {
+    "start": "npx @11ty/eleventy --serve",
+    "build": "node scripts/clean-dist.js && ELEVENTY_ENV=production npx @11ty/eleventy",
+    "postbuild": "node scripts/minify-dist-css.js",
+    "add:blog": "node scripts/add-feature.js blog",
+    "add:case-studies": "node scripts/add-feature.js case-studies",
+    "add:changelog": "node scripts/add-feature.js changelog",
+    "add:faqs": "node scripts/add-feature.js faqs",
+    "add:navigation-menus": "node scripts/add-feature.js navigation-menus",
+    "add:portfolio": "node scripts/add-feature.js portfolio",
+    "add:testimonials": "node scripts/add-feature.js testimonials",
+    "add:team": "node scripts/add-feature.js team",
+    "add:timeline": "node scripts/add-feature.js timeline",
+    "remove:blog": "node scripts/remove-feature.js blog",
+    "remove:case-studies": "node scripts/remove-feature.js case-studies",
+    "remove:changelog": "node scripts/remove-feature.js changelog",
+    "remove:faqs": "node scripts/remove-feature.js faqs",
+    "remove:navigation-menus": "node scripts/remove-feature.js navigation-menus",
+    "remove:portfolio": "node scripts/remove-feature.js portfolio",
+    "remove:testimonials": "node scripts/remove-feature.js testimonials",
+    "remove:team": "node scripts/remove-feature.js team",
+    "remove:timeline": "node scripts/remove-feature.js timeline",
+    "check:css": "node scripts/check-css.js",
+    "check:boilerplate": "node scripts/check-boilerplate.js"
+  },
+  "keywords": [
+    "eleventy",
+    "11ty",
+    "netlify-cms",
+    "boilerplate"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@11ty/eleventy-plugin-rss": "^1.0.7",
+    "js-yaml": "^4.1.0",
+    "luxon": "^3.6.1",
+    "markdown-it": "^14.1.0"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "lightningcss": "^1.32.0"
+  }
+}

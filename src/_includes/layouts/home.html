@@ -1,0 +1,93 @@
+{% set assetHash = global.random() %}
+
+<!DOCTYPE html>
+<html lang="{{ site.lang }}">
+
+{% include "partials/head.html" %}
+
+<body id="{{ site.siteID }}">
+
+{% include "partials/analytics-body.html" %}
+
+<div data-style="reversed">
+
+{% include "partials/header.html" %}
+
+<div class="layout" data-layout="amsterdam">
+
+<div>
+<h1 data-visibility="hidden">{{ title }}</h1>
+{% include "partials/books-banner.html" %}
+</div><!-- one -->
+
+</div><!-- layout -->
+
+<div class="layout" data-layout="paris">
+
+<div>
+{% if lede %}{{ lede | markdown | safe }}{% endif %}
+</div><!-- one -->
+
+<div>
+{% if blockOne %}{{ blockOne | markdown | safe }}{% endif %}
+</div><!-- two -->
+
+</div><!-- layout -->
+
+</div><!-- data-theme -->
+
+
+
+<hr data-function="spacer">
+
+
+
+<div class="layout" data-layout="amsterdam">
+
+<div class="alt-columns">
+{% if blockTwo %}{{ blockTwo | markdown | safe }}{% endif %}
+<p>{% include "partials/svgs/detail-signature.svg" %}</p>
+</div><!-- one -->
+
+</div><!-- layout -->
+
+
+
+<hr data-function="spacer">
+
+
+
+{% include "partials/book-list.html" %}
+
+
+
+<hr data-function="spacer">
+
+
+
+{% if features.blog %}
+<h2>From my blog</h2>
+
+<div class="layout" data-layout="vienna">
+{% set postListItems = collections.blog.slice(0, 3) %}
+{% include "partials/post-list.html" %}
+</div><!-- layout -->
+{% endif %}
+
+
+
+<div class="alt-divider">
+{% include "partials/svgs/detail-leaf-1.svg" %}
+</div><!-- alt-divider -->
+
+
+<h2 data-align-h="center">Three ways to subscribe</h2>
+{% include "partials/subscription-panel.html" %}
+
+
+
+{% include "partials/footer.html" %}
+<script src="{{ site.assetPath }}/js/scripts.js"></script>
+</body>
+
+</html>
