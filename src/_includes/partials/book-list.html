@@ -1,20 +1,10 @@
 <div id="books" data-opposite="true">
 
-<article class="item-book">
-<figure>
-<a href="/four-book-bundle/"><img src="/images/cover-bundle.webp" alt="Signed bundle of the first four books"></a>
-</figure>
-</article><!-- item-book -->
-
-
-
 {% for item in collections.books %}
 <article class="item-book">
 {% if item.data.thumbnail %}<figure>
 <a href="{{ item.url }}" data-book-open aria-haspopup="dialog" aria-controls="books-dialog"><img src="{{ item.data.thumbnail }}" alt="{{ item.data.title }}" data-book-status="{{ item.data.status }}"></a>
 </figure>{% endif %}
-
-
 
 <style>
 .books-dialog[data-book="{{ item.fileSlug }}"] {
@@ -31,8 +21,6 @@ background-color: {% if item.data.accentHex %}{{ item.data.accentHex }}{% else %
 .books-dialog[data-book="{{ item.fileSlug }}"] .btn[data-type="secondary"] {
 background-color: rgba(255,255,255,.1); }
 </style>
-
-
 
 <template data-book-details="{{ item.fileSlug }}">
 
@@ -63,6 +51,12 @@ background-color: rgba(255,255,255,.1); }
 
 </article>
 {% endfor %}
+
+<!-- <article class="item-book">
+<figure>
+<a href="/four-book-bundle/"><img src="/images/cover-bundle.webp" alt="Signed bundle of the first four books"></a>
+</figure>
+</article> -->
 
 </div><!-- books -->
 

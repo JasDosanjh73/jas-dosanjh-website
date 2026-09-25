@@ -23,11 +23,6 @@
 </figure>
 {% endif %}
 
-<blockquote data-variant="m">
-{% include "partials/svgs/detail-leaf-1.svg" %}
-{{ quoteOne | markdown | safe }}
-</blockquote>
-
 </div><!-- one -->
 
 <div>
@@ -36,33 +31,23 @@
 {{ lede | markdown | safe }}
 {{ blockOne | markdown | safe }}
 
-{% if blockTwo %}
-<div class="btn-cta">
-<a class="btn" href="#extended" data-about-open>Read more</a>
-</div><!-- btn-cta -->
-
-<dialog class="about-dialog">
-
-<button class="btn" data-variant="c" title="Close" data-about-close autofocus>
-<svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-<path d="m6 6 12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" />
-</svg>
-</button>
-
-<h2 data-size="2xl">{{ title }}</h2>
-
-{{ lede | markdown | safe }}
-{{ blockOne | markdown | safe }}
-
-<hr id="extended" data-decoration="thin">
-
-{{ blockTwo | markdown | safe }}
-</dialog>
-{% endif %}
+{% if quoteOne %}<blockquote data-variant="m">
+{% include "partials/svgs/detail-leaf-1.svg" %}
+{{ quoteOne | markdown | safe }}
+</blockquote>{% endif %}
 
 </div><!-- two -->
 
 </div><!-- layout -->
+
+
+{% if blockTwo %}<div class="layout" data-layout="amsterdam">
+
+<div class="alt-columns">
+{{ blockTwo | markdown | safe }}
+</div><!-- one -->
+
+</div><!-- layout -->{% endif %}
 
 
 
@@ -102,15 +87,35 @@
 
 
 
-{% include "partials/book-list.html" %}
-
-
-
-<hr data-function="spacer">
-
-
 <h2 data-align-h="center">Three ways to subscribe</h2>
 {% include "partials/subscription-panel.html" %}
+
+
+
+<div class="alt-divider">
+{% include "partials/svgs/detail-leaf-4.svg" %}
+</div><!-- alt-divider -->
+
+
+
+<div class="layout" data-layout="warsaw">
+
+<div>
+
+{% if features.faqs and collections.faqItems.length %}
+<h2>Frequently asked questions</h2>
+
+{% for item in collections.faqItems %}
+<details class="item-faq">
+<summary>{{ item.data.question }}</summary>
+{{ item.data.answer | markdown | safe }}
+</details>
+{% endfor %}
+{% endif %}
+
+</div><!-- one -->
+
+</div><!-- layout -->
 
 
 

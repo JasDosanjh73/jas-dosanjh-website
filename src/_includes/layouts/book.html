@@ -34,7 +34,7 @@
 {% if sampleURL or ctaURL %}
 <div class="btn-cta">
 {% if sampleURL %}<a class="btn" href="/images/{{ sampleURL }}" data-type="secondary">Sample chapter</a>{% endif %} &nbsp;
-{% if ctaURL %}<a class="btn" href="{{ ctaURL }}" target="_blank" rel="noopener">Buy e-book</a>{% endif %}
+{% if ctaURL %}<a class="btn" href="{{ ctaURL }}" target="_blank" rel="noopener">Buy book</a>{% endif %}
 </div><!-- btn-cta -->
 {% else %}
 <p>Coming soon</p>
@@ -88,10 +88,14 @@
 
 
 
-{% include "partials/book-list.html" %}
+<div class="alt-divider">
+{% include "partials/svgs/detail-leaf-4.svg" %}
+</div><!-- alt-divider -->
+
+
 
 {% if reviews.length %}
-<h2>{{ title }} reviews</h2>
+<h2 style="margin-block-end:var(--spacing-l);">{{ title }} reviews</h2>
 
 <div class="layout" data-layout="vienna">
 
@@ -105,6 +109,9 @@
 
 </div><!-- layout -->
 {% endif %}
+
+{% include "partials/book-list.html" %}
+
 
 {% include "partials/footer.html" %}
 <script src="{{ site.assetPath }}/js/scripts.js"></script>

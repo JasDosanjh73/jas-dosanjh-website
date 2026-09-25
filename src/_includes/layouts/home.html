@@ -16,21 +16,18 @@
 <div class="layout" data-layout="amsterdam">
 
 <div>
-<h1 data-visibility="hidden">{{ title }}</h1>
 {% include "partials/books-banner.html" %}
 </div><!-- one -->
 
 </div><!-- layout -->
 
-<div class="layout" data-layout="paris">
+
+
+<div class="layout" data-layout="amsterdam">
 
 <div>
-{% if lede %}{{ lede | markdown | safe }}{% endif %}
-</div><!-- one -->
-
-<div>
-{% if blockOne %}{{ blockOne | markdown | safe }}{% endif %}
-</div><!-- two -->
+<h1>{{ title }}</h1>
+</div>
 
 </div><!-- layout -->
 
@@ -44,10 +41,12 @@
 
 <div class="layout" data-layout="amsterdam">
 
-<div class="alt-columns">
-{% if blockTwo %}{{ blockTwo | markdown | safe }}{% endif %}
+{% if blockOne %}<div class="alt-columns">
+<img src="/images/img-intro-1.webp" id="alt-intro-1">
+<img src="/images/img-intro-2.webp" id="alt-intro-2">
+{{ blockOne | markdown | safe }}
 <p>{% include "partials/svgs/detail-signature.svg" %}</p>
-</div><!-- one -->
+</div><!-- one -->{% endif %}
 
 </div><!-- layout -->
 

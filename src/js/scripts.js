@@ -1,17 +1,4 @@
 (() => {
-const dialog = document.querySelector(".about-dialog");
-const openButton = document.querySelector("[data-about-open]");
-const closeButton = document.querySelector("[data-about-close]");
-
-if (!dialog || !openButton || !closeButton) {
-return;
-}
-
-openButton.addEventListener("click", () => dialog.showModal());
-closeButton.addEventListener("click", () => dialog.close());
-})();
-
-(() => {
 const menus = document.querySelectorAll("[data-navigation-menu]");
 
 if (menus.length === 0) {
@@ -204,6 +191,38 @@ const banner = document.querySelector(".books-banner");
 if (!banner) {
 return;
 }
+
+const scroller = banner.querySelector(".books-banner-scroll");
+const controls = banner.querySelector(".books-banner-controls");
+const backward = controls.querySelector('[data-direction="backward"]');
+const forward = controls.querySelector('[data-direction="forward"]');
+
+function updateBannerControls() {
+const maxScroll = scroller.scrollWidth - scroller.clientWidth;
+controls.hidden = maxScroll <= 1;
+backward.disabled = scroller.scrollLeft <= 1;
+forward.disabled = scroller.scrollLeft >= maxScroll - 1;
+}
+
+controls.addEventListener("click", (event) => {
+const button = event.target.closest(".books-banner-button");
+
+if (!button) {
+return;
+}
+
+const direction = button.dataset.direction === "forward" ? 1 : -1;
+scroller.scrollBy({ left: direction * scroller.clientWidth * 0.5 });
+});
+
+scroller.addEventListener("scroll", updateBannerControls, { passive: true });
+const scrollObserver = new ResizeObserver(updateBannerControls);
+scrollObserver.observe(scroller);
+scrollObserver.observe(scroller.querySelector("ul"));
+scroller.querySelectorAll("img").forEach((image) => {
+image.addEventListener("load", updateBannerControls);
+});
+updateBannerControls();
 
 function positionBannerDialog(dialog) {
 const bounds = banner.getBoundingClientRect();

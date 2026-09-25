@@ -39,7 +39,8 @@
 
 {% for review in collections.reviews.slice(0, 24) %}
 <blockquote data-variant="r">
-{% include "partials/svgs/detail-leaf-2.svg" %}
+{% set leaf = [1, 2, 3, 4, 5] | random %}
+{% include "partials/svgs/detail-leaf-" ~ leaf ~ ".svg" %}
 <p>{{ review.data.reviewText }}</p>
 <footer>{{ review.data.reviewFooter }}</footer>
 </blockquote>

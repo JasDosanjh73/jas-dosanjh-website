@@ -2,8 +2,8 @@
 title: "Your Wife, Our Daughter"
 order: 4
 
-accentHex: "#026ba4"
-bgHEX: "#081f2a"
+accentHex: "#bd740f"
+bgHEX: "#2e1d05"
 bgImg: "/images/bg-book-4.webp"
 
 format: "Paperback"

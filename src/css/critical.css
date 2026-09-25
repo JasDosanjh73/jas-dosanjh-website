@@ -185,8 +185,8 @@ text-shadow: none; }
 
 /* Custom scrollbar styling */
 ::-webkit-scrollbar {
-height: 6px;
-width: 6px; }
+height: 10px;
+width: 10px; }
 
 ::-webkit-scrollbar-thumb {
 background-color: var(--color-accent);
@@ -194,7 +194,7 @@ border-radius: 6px;
 width: 6px; }
 
 ::-webkit-scrollbar-track {
-background-color: var(--color-base);
+background-color: rgba(0,0,0,.1);
 border-radius: 6px; }
 
 /* Anchor positioning for jump links */
@@ -392,7 +392,7 @@ margin-inline-end: 5px; }
 
 .alt-email {
 font-family: 'cormorant-italic';
-font-size: var(--font-size-m); }
+font-size: var(--font-size-l); }
 
 .alt-lede {
 font-family: var(--font-family-alt);
@@ -427,6 +427,7 @@ blockquote footer { padding: 0; }
 
 blockquote p {
 font-family: 'cormorant-italic';
+font-size: var(--font-size-m);
 line-height: var(--lineheight-s);
 margin-block: 0 var(--spacing-xs); }
 
@@ -645,6 +646,9 @@ margin-inline: 0; }
 padding-block: var(--spacing-m);
 text-align: center; }
 
+.alt-divider svg {
+max-block-size: 80px; }
+
 
 
 /* ==========================================================================
@@ -687,6 +691,25 @@ img { border-width: 0; }
 img[data-variant="logo"] {
 display: block;
 max-inline-size: 80px; }
+
+img#alt-intro-1,
+img#alt-intro-2 {
+aspect-ratio: 1;
+clip-path: circle(50%);
+inline-size: 120px;
+margin-block-end: var(--spacing-s);
+max-inline-size: 40%;
+object-fit: cover;
+shape-margin: var(--spacing-s);
+shape-outside: circle(50%) border-box; }
+
+img#alt-intro-1 {
+float: left;
+margin-inline-end: var(--spacing-s); }
+
+img#alt-intro-2 {
+float: right;
+margin-inline-start: var(--spacing-s); }
 
 video {
 border-radius: var(--border-radius-r);
@@ -872,6 +895,44 @@ padding-block: var(--spacing-r); }
 /* ==========================================================================
 BOOK BANNER
 ========================================================================== */
+
+.books-banner {
+position: relative; }
+
+.books-banner-controls:not([hidden]) {
+display: flex;
+inset-block-start: 50%;
+inset-inline: var(--spacing-s);
+justify-content: space-between;
+pointer-events: none;
+position: absolute;
+translate: 0 -50%;
+z-index: 2; }
+
+.books-banner-button {
+align-items: center;
+background-color: var(--color-button-background);
+block-size: 44px;
+border: 0;
+border-radius: 50%;
+color: var(--color-button-text);
+cursor: pointer;
+display: flex;
+inline-size: 44px;
+justify-content: center;
+opacity: 0;
+padding: 0;
+pointer-events: auto; }
+
+.books-banner-button:enabled:hover {
+background-color: var(--color-text-default); }
+
+.books-banner-button:focus-visible {
+outline: 2px solid var(--color-text-default);
+outline-offset: 3px; }
+
+.books-banner:hover .books-banner-button {
+opacity: 1; }
 
 .books-banner-scroll {
 border-block-start: 7px solid transparent;
@@ -1225,33 +1286,6 @@ background-color: var(--color-text-default); }
 
 
 /* ==========================================================================
-ABOUT DIALOG
-========================================================================== */
-
-html:has(.about-dialog[open]) {
-overflow: hidden; }
-
-.about-dialog {
-background-color: var(--color-background-default);
-border: none;
-border-block: .5rem solid transparent;
-border-inline-end: .5rem solid transparent;
-border-radius: var(--border-radius-l);
-box-sizing: border-box;
-color: var(--color-text-default);
-inline-size: min(44rem, calc(100% - 2rem));
-margin: auto;
-max-block-size: calc(100dvh - 2rem);
-overflow-y: auto;
-overscroll-behavior: contain;
-padding: var(--spacing-m) 5rem var(--spacing-m) var(--spacing-m); }
-
-.about-dialog::backdrop {
-background-color: rgb(8 12 20 / 75%); }
-
-
-
-/* ==========================================================================
 FONT SIZE UTILITIES
 ========================================================================== */
 
@@ -1277,8 +1311,9 @@ TEXT COLUMN LAYOUT
 
 /* Multi-column text layout */
 .alt-columns {
-column-width: 22em;
-gap: var(--grid-column-gap);
+column-width: 28em;
+column-rule: dashed var(--border-width-r) var(--color-border);
+gap: var(--spacing-l);
 margin-trim: block; /* Trims margin at block boundaries */}
 
 .alt-columns p {
@@ -1741,6 +1776,24 @@ padding-inline: calc(50vw - 50% + var(--spacing-l)); }
 
 
 
+@media screen and (max-width: 64rem) {
+
+[data-navigation-body="bar"] ul {
+display: grid;
+gap: var(--spacing-s);
+grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+[data-navigation-body="bar"] li {
+margin: 0;
+text-align: center; }
+
+[data-navigation-body="bar"] li:not(:last-of-type)::after {
+display: none; }
+
+}
+
+
+
 /* ==========================================================================
 ACCESSIBILITY: REDUCED MOTION
 ========================================================================== */
@@ -1760,6 +1813,9 @@ scale: var(--scale-down); }
 
 /* Respect user motion preferences */
 @media (prefers-reduced-motion: no-preference) {
+.books-banner-scroll {
+scroll-behavior: smooth; }
+
 .books-banner-scroll img {
 animation: books-banner-swing var(--swing-duration) ease-in-out var(--swing-delay) infinite; }
 

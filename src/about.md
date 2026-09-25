@@ -23,8 +23,6 @@ blockTwo: |
 
   I retain creative and strategic control over my writing and the platform being built around it, having learnt at considerable personal cost exactly where authority over my own life must sit. At the centre of everything I create is one conviction:
 
-  ### Nobody else should have the final word on a woman’s life.
-
   Away from my writing desk, I enjoy hiking with my sister and cousin, watching true-crime documentaries and completing jigsaws at a speed that is probably far too competitive. I have been known to finish a 400-piece puzzle in under an hour.
 
 blockThree: |

@@ -30,7 +30,7 @@ permalink: /privacy/
 
 <h3 id="why-I-value-your-privacy">Why I value your privacy</h3>
 
-<p>I value your privacy as much as I do my own, so I&rsquo;re committed to keeping your personal and business information safe. I ask for only the bare minimum from my clients. I&rsquo;ll never use your personal information for any reason other than why you gave it, and I&rsquo;ll never give anyone access to it unless I&rsquo;m forced to by law.</p>
+<p>I value your privacy as much as I do my own, so I’m committed to keeping your personal and business information safe. I ask for only the bare minimum from my clients. I&rsquo;ll never use your personal information for any reason other than why you gave it, and I’ll never give anyone access to it unless I&rsquo;m forced to by law.</p>
 
 <h3 id="how-I-collect-information">How I collect information</h3>
 

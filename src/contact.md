@@ -13,6 +13,6 @@ intro: |
 blockOneHeadline: "Looking for support instead of a book?"
 
 blockOne: |
-  If you’re thinking of separation or divorce, or you’re experiencing coercive control and you’re looking for practical guidance, I work with women one-to-one.
+  If you’re thinking of separation or divorce, or you’re experiencing coercive control and you’re looking for practical guidance, I work with women one-to-one. I’d be happy to [hear from you](mailto:jas@jasdosanjh.com).
 
 ---

@@ -1,5 +1,4 @@
 {% set assetHash = global.random() %}
-{% set recommendedPosts = helpers.getSiblingContent(collections.blog, page, 6, false) %}
 
 <!DOCTYPE html>
 <html lang="{{ site.lang }}">
@@ -59,32 +58,21 @@
 
 
 
-{% include "partials/book-list.html" %}
-
-
-
 <div class="alt-divider">
 {% include "partials/svgs/detail-leaf-1.svg" %}
 </div><!-- alt-divider -->
 
 
 
-{% if recommendedPosts %}
-<div class="layout" data-layout="tbilisi">
-
-<div>
-
+{% if features.blog %}
+{% set postListItems = helpers.getSiblingContent(collections.blog, page, 3, false) %}
+{% if postListItems.length %}
 <h2>More posts</h2>
 
-{% for item in recommendedPosts %}
-<article class="item-post-list">
-<h2><a href="{{ item.url }}">{{ item.data.title }}</a></h2>
-<p>{{ item.data.postSummary }}</p>
-</article>
-{% endfor %}
-</div><!-- one -->
-
+<div class="layout" data-layout="vienna">
+{% include "partials/post-list.html" %}
 </div><!-- layout -->
+{% endif %}
 {% endif %}
 
 

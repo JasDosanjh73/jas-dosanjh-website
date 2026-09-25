@@ -9,7 +9,7 @@
 {% if timelineEntries.length %}
 <h2 data-align-h="center">{{ timelineHeading | default("My timeline") }}</h2>
 
-<ol class="alt-timeline" role="list" data-opposite="true" aria-label="{{ timelineHeading | default('Career timeline') }}">
+<ol class="alt-timeline" role="list" aria-label="{{ timelineHeading | default('My timeline') }}">
 {% for item in timelineEntries %}
 <li class="alt-timeline-item">
 <h3 class="alt-timeline-period">{{ item.period }}</h3>

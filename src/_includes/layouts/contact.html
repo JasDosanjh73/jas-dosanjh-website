@@ -90,7 +90,7 @@
 
 <div>
 {% if blockOneHeadline %}<h4>{{ blockOneHeadline | safe }}</h4>{% endif %}
-{% if blockOne %}<p>{{ blockOne | safe }}</p>{% endif %}
+{% if blockOne %}<p>{{ blockOne | markdown | safe }}</p>{% endif %}
 {% if site.email %}<p class="alt-email"><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>{% endif %}
 {% include "partials/socials.html" %}
 </div><!-- three -->
@@ -117,26 +117,6 @@
 {% include "partials/svgs/detail-leaf-2.svg" %}
 </div><!-- alt-divider -->
 
-
-
-<div class="layout" data-layout="warsaw">
-
-<div>
-
-{% if features.faqs and collections.faqItems.length %}
-<h2>Frequently asked questions</h2>
-
-{% for item in collections.faqItems %}
-<details class="item-faq">
-<summary>{{ item.data.question }}</summary>
-{{ item.data.answer | markdown | safe }}
-</details>
-{% endfor %}
-{% endif %}
-
-</div><!-- one -->
-
-</div><!-- layout -->
 
 
 {% include "partials/footer.html" %}

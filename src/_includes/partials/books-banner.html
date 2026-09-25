@@ -1,6 +1,6 @@
 <section class="books-banner">
 
-<div class="books-banner-scroll">
+<div class="books-banner-scroll" id="books-banner-scroll">
 <ul class="alt-">
 {% for item in collections.books %}
 <li data-book="{{ item.fileSlug }}">
@@ -15,6 +15,19 @@
 {% endfor %}
 </ul>
 </div><!-- books-banner-scroll -->
+
+<div class="books-banner-controls" hidden>
+<button class="books-banner-button" data-direction="backward">
+<svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+<path d="m14 6-6 6 6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+</svg>
+</button>
+<button class="books-banner-button" data-direction="forward">
+<svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+<path d="m10 6 6 6-6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+</svg>
+</button>
+</div><!-- books-banner-controls -->
 
 
 

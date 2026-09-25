@@ -1,17 +1,9 @@
 ---
 layout: layouts/home.html
 metaDesc: "Born and raised in the UK, Jas Dosanjh is a British Asian author whose memoirs confront oppression with clarity and tenderness."
-title: Jas Dosanjh
-
-lede: |
-  <p class="alt-lede">There isn't much that Jas Dosanjh hasn't seen or experienced. Jas uses her skills as a writer to throw a spotlight on the problems facing young Sikh Punjabi girls and women.</p>
+title: Jas Dosanjh, British Asian author
 
 blockOne: |
-  <p class="alt-dropcap">Jas is the daughter of Sikh Punjabi immigrants. An avid reader as a child, Jas’ life was restricted and oppressed, yet books provided a window into different worlds outside her strict home life.</p>
-
-  An entrepreneur who has been listed in Who’s Who of Britain’s Business Elite, Jas is now using her skills as a writer to throw a spotlight on the problems and issues facing young Sikh Punjabi girls and women.
-
-blockTwo: |
  To be honest, I didn’t set out to write a book, let alone a memoir, but my friend suggested that I should write the story of my life. When I protested that nobody would be interested in or care about my life, and asked why I would want to revisit something so painful, he wasn’t having any of it. “It will help women and girls by telling your story.”
 
  I initially thought I could fit everything into one book, but that first book became three, written ferociously over four months. Once the first draft was done, I began turning the shite into stories people could follow, relate to, and possibly learn from.
