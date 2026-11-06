@@ -5,7 +5,7 @@ permalink: /book-clubs/
 title: Book club information
 ---
 
-The Life Out Of Reach series is memoir in its truest sense - no protective layers or distance, no tidy resolutions and no version of events shaped to make anyone, including me, look better than the truth allows. These books are built for exactly the kind of reading a book club does best: close, honest and willing to sit with questions that don’t have comfortable answers. Here are discussion questions for both titles:
+The Life Out Of Reach series is memoir in its truest sense; no protective layers or distance, no tidy resolutions and no version of events shaped to make anyone, including me, look better than the truth allows. These books are built for exactly the kind of reading a book club does best: close, honest and willing to sit with questions that don’t have comfortable answers. Here are discussion questions for both titles:
 
 <div data-layout="flex">
 
