@@ -1,18 +1,36 @@
 {% if subscriptionPanel %}
 <div data-layout="flex" data-opposite="true">
 
-<article class="item-subscription" data-option="newsletter">
+<article class="item-subscription ml-subscribe-form" data-option="newsletter" id="mlb2-48657785">
 <div>
 {% include "partials/svgs/logo-mailing-list.svg" %}
 <h3>{{ subscriptionPanel.newsletter.heading | escape }}</h3>
 <p>{{ subscriptionPanel.newsletter.description | escape }}</p>
 </div>
 
-{% if subscriptionPanel.newsletter.buttonUrl %}
-<a class="btn" data-type="secondary" href="{{ subscriptionPanel.newsletter.buttonUrl | escape }}">{{ subscriptionPanel.newsletter.buttonLabel | escape }}</a>
-{% else %}
-<button disabled>{{ subscriptionPanel.newsletter.buttonLabel | escape }}</button>
-{% endif %}
+<form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1866669/forms/204376294463374384/subscribe" method="post" target="_blank">
+
+<input type="hidden" name="ml-submit" value="1">
+<input type="hidden" name="anticsrf" value="true">
+<label for="newsletter-email" data-visibility="hidden">Email address</label>
+
+<div style="display: flex; gap: var(--spacing-s);">
+<div>
+<input type="email" id="newsletter-email" name="fields[email]" placeholder="Email address" autocomplete="email" required>
+</div>
+
+<div>
+<button type="submit" class="btn">Subscribe</button>
+</div>
+
+</form>
+
+<script>
+function ml_webform_success_48657785() {
+window.location.href = 'https://www.jasdosanjh.com';
+}
+</script>
+<script src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519" defer></script>
 </article>
 
 
